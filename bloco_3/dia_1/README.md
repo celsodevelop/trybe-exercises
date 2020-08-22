@@ -5,12 +5,12 @@
       HTML exercises by Khan Academy <br>
     </h1>
     <ul>
-      <li title="Writing a Poem '<br>' training">challengeWriteAPoem.html<br></li>
-      <li>challengeWishlist.html<br></li>
-      <li>challengeLearnTextTags.html<br></li>
-      <li>challengePerfectTrip.html<br></li>
-      <li>challengeJumpAround.html<br></li>
-      <li>challengeLinksforLearning.html<br></li>
+      <li title="'<br>' Training">challengeWriteAPoem<br></li>
+      <li title="'<h1 to h6>' training">challengeLearnTextTags<br></li>
+      <li title="'<ul> and <li>' training">challengeWishlist<br></li>
+      <li title="'<img src alt>' training">challengePerfectTrip<br></li>
+      <li title="'<a href=link>' training">challengeLinksforLearning<br></li>
+      <li title="'<a href=id>' training">challengeJumpAround<br></li>
     </ul>  
   </body>
 </html>
