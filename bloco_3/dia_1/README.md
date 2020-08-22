@@ -5,7 +5,7 @@
       HTML exercises by Khan Academy <br>
     </h1>
     <ul>
-      <li>challengeWriteAPoem.html</li><br>
+      <li title="Writing a Poem '<br>' training">challengeWriteAPoem.html<br></li>
       <li>challengeWishlist.html<br></li>
       <li>challengeLearnTextTags.html<br></li>
       <li>challengePerfectTrip.html<br></li>
