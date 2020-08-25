@@ -12,8 +12,10 @@
             
             .info {
                 background-color: #53AFA3;
+                border-radius: 10%;
                 margin: auto;
-                width: 80%;            
+                width: 75%;         
+                min-width: 15ch;   
             }
 
             .info *:hover {
@@ -21,14 +23,18 @@
             }
             
             .info-left {                
-                float: left;
-                max-width: 30ch;
+                max-width: 30%;
+                min-width: 15ch;
                 display: inline-block;
+                vertical-align: text-top;
+                padding-left: 20%;
             }
             
-            .info-right{                
-                float: right;
-                max-width: 30ch;
+            .info-right{
+                vertical-align: text-top;
+                max-width: 30%;
+                min-width: 15ch;
+                margin-left: 10%;
                 display: inline-block;
             }
 
@@ -40,11 +46,21 @@
             }
 
             .link {
-                color: sienna;
                 background-color: slateblue;
-                clear: both;                
+                clear: both;
+                text-align: center;  
+                padding: 10px 10px;              
                 margin: auto;
                 }
+
+            .link a {
+                text-decoration: none;
+            }
+
+            .link a:hover {
+                font-size: 150%;
+                color: lawngreen;
+            }
 
             .hero h1 {
                 color: black;
