@@ -2,7 +2,7 @@ const aliquotaINSS = [0.08, 0.09, 0.11];
 const aliquotaIR = [0, 0.075, 0.15, 0.225, 0.275];
 
 
-let salarioBruto = 3500;
+let salarioBruto = "a";
 let valorINSS = 0;
 let valorIR = 0;
 let salarioBase = 0;
@@ -17,7 +17,7 @@ if (salarioBruto >= 0 && salarioBruto <= 1556.94){
 } else if (salarioBruto >= 5189.83) {
     valorINSS = 570.88;
 } else {
-    console.log ("INVALID")
+    console.log ("INVALID salario ! Digite salario valido")
     valorINSS = "INVALID"
 }
 
