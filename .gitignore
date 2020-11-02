@@ -135,5 +135,11 @@ dist
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+.editorconfig
+.eslintrc.json
+package.json
+package-lock.json
+.codeclimate.yml
+.stylelintrc.json
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,node,vscode
