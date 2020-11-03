@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+  <title>Teste de Página</title>
+<style>
+  div {
+      border-color: black;
+      border-style: solid;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .main-content {
+    background-color: yellow;
+    color: white;
+  }
+
+  .main-content .center-content {
+    background-color: red;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-content .center-content p{
+    font-style: italic;
+  }
+
+  .main-content .left-content {
+    background-color: green;
+    width: 60%;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .main-content .left-content .small-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+  }
+
+  .main-content .right-content {
+    background-color: rgb(69, 69, 223);
+    width: 60%;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .main-content .description {
+    text-align: center;
+  }
+
+  #hero-title {
+    color: rgb(136, 114, 114);
+  }
+
+</style>
+</head>
+<body>
+  
+  <script>
+    function insertHero(){
+      let heroTitle = document.createElement('h1');
+      heroTitle.setAttribute('id', 'hero-title');
+      heroTitle.innerText = 'Exercício 5.2 - JavaScript DOM';
+      document.querySelector('body').appendChild(heroTitle);
+    }
+    
+    insertHero();
+
+    function insertMainContent (){
+      let mainContent = document.createElement('div');
+      mainContent.className = 'main-content';
+      document.querySelector('body').appendChild(mainContent);
+    }
+
+    insertMainContent ();
+
+    function insertCenterContent (){
+      let centerContent = document.createElement('div');
+      centerContent.className = 'center-content';
+      document.querySelector('div.main-content').appendChild(centerContent);
+    }
+
+    insertCenterContent();
+    
+    function insertPCenterContent (){
+      let pCenterContent = document.createElement('p');
+      pCenterContent.setAttribute('id', 'paragraph-1');
+      pCenterContent.innerText = 'Using dynamic composition in this exercise';
+      document.querySelector('div.center-content').appendChild(pCenterContent);
+    }
+
+    insertPCenterContent ();
+
+    function insertLeftContent (){
+      let leftContent = document.createElement('div');
+      leftContent.className = 'left-content';
+      document.querySelector('div.main-content').appendChild(leftContent);
+    }
+
+    insertLeftContent();
+    
+    function insertRightContent(){
+      let rightContent = document.createElement('div');
+      rightContent.className = 'right-content';
+      document.getElementsByClassName('main-content')[0].appendChild(rightContent);
+    }
+
+    insertRightContent();
+
+    function insertImageLeft () {
+      let imageLeft = document.createElement('img');
+      imageLeft.setAttribute('src', 'https://picsum.photos/200')
+      imageLeft.className = 'small-image';
+      document.querySelector('div.left-content').appendChild(imageLeft);
+    }
+
+    insertImageLeft ();
+
+    function insertListRight () {
+      let listRight = document.createElement('ul');
+      listRight.className = 'unordered-list';
+      document.querySelector('div.right-content').appendChild(listRight);
+    }
+
+    insertListRight();
+
+    function insertItemsUlList(refUl, items) {
+      let list = document.querySelector(refUl);
+      for (index = 0; index < items.length; index += 1){
+        let listRightItem = document.createElement('li');
+        listRightItem.innerText = items[(index)];
+        list.appendChild(listRightItem);
+      }
+    }
+    
+    const numbers = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
+    
+    insertItemsUlList('div.right-content ul', numbers);
+   
+    function insertSubTitleMain(){
+      let subTitle = document.createElement('h3');
+      subTitle.className = ('sub-title');
+      document.querySelector('div.main-content').appendChild(subTitle);
+    }
+    
+    insertSubTitleMain();
+    insertSubTitleMain();
+    insertSubTitleMain();
+
+    function insertClass (element, classAdd){
+      if (Object.prototype.toString.call(element) == '[object NodeList]') {
+        for (let index=0; index < element.length; index+=1){
+          element[index].className = classAdd;
+        }
+      } else {
+        element.className = classAdd;
+      }
+    }
+
+    insertClass(document.querySelector('#hero-title'), 'title');
+
+    insertClass(document.querySelectorAll('.sub-title'),'description');
+
+    function removeElementChild(element, selector){
+      if (typeof selector == 'undefined'){
+        let elementParent = element.parentNode
+        elementParent.removeChild(element);
+      } else if (typeof selector == 'object'){
+        for (let index in selector){
+            let elementParentObj = element[0].parentNode
+            elementParentObj.removeChild(element[selector[index]]);
+          }
+        } else {
+        elementParent.removeChild(element[selector]);
+          }
+        } 
+
+    removeElementChild(document.querySelector('div.left-content'));
+
+    removeElementChild(document.querySelectorAll('li'), [8,9]);
+      
+    function centralizarDiv (element){
+      element.setAttribute('style', 'margin-right: auto');
+    }
+
+    centralizarDiv(document.querySelector('div.right-content'));
+
+    function changeBackground (element, color){
+      element.setAttribute('style', 'background-color: '+color);
+    }
+
+    let bckgroundClr = 'rgb(0,89,98)' 
+
+    changeBackground (document.querySelector('div.center-content'), bckgroundClr);
+  </script>
+
+</body>
+</html>

@@ -2,38 +2,31 @@
 
 ## DESCRIÇÃO DOS PROGRAMAS
 
-### Exercício 1 - imprimeArray.js
+### Exercício 1
 
-Nesse primeiro exercício, percorri o array imprimindo todos os valores nele contidos com a função console.log();
+ Crie uma função que mude o texto na tag `<p>` para uma descrição de como você se vê daqui a 2 anos. 
 
-### Exercício 2 - sumArray.js
 
-Para o segundo exercício, você deve somar todos os valores contidos no array e imprimir o resultado;
+### Exercício 2 
 
-### Exercício 3 - meanArray.js
+Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (`rgb(76,164,109`)).
 
-Para o terceiro exercício, calcule e imprima a média aritmética dos valores contidos no array;
 
-### Exercício 4 - meanArrayMsg.js
+### Exercício 3 
 
-Com o mesmo código do exercício anterior, caso valor final seja maior que 20, imprima a mensagem: "valor maior que 20". Caso não seja, imprima a mensagem: "valor menor ou igual a 20";
+Crie uma função que mude a cor do quadrado vermelho para branco.
 
-### Exercício 5 - gtValue.js
 
-Utilizando for, descubra qual o maior valor contido no array e imprima-o;
+### Exercício 4 
 
-### Exercício 6 - evenArray.js
+Crie uma função que corrija o texto da tag `<h1>`.
 
-Descubra quantos valores ímpares existem no array e imprima o resultado. Caso não exista nenhum, imprima a mensagem: "nenhum valor ímpar encontrado";
 
-### Exercício 7 - lsArray.js
+### Exercício 5 
 
-Utilizando for, descubra qual o menor valor contido no array e imprima-o;
+ Crie uma função que modifique todo o texto da tag `<p>` para maiúsculo.
 
-### Exercício 8 - count1To25.js
 
-Utilizando for, crie uma array que vá de 1 até 25 e imprima o resultado;
+### Exercício 6 
 
-### Exercício 9 - divisionArray.js
-
-Utilizando o array criado no exercício anterior imprima o resultado da divisão de cada um dos elementos por 2.
+/Crie uma função que exiba o conteúdo de todas as tags `<p>` no console.
