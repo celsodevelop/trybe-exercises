@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width initial-scale=1.0" />
+    <title>Exercício 5.1</title>
+
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">Exercício 5.1 - JavaEscripito </h1>
+    <div class="main-content">
+      <div class="center-content">
+        <p>Texto padrão do nosso site</p>
+        <p>-----</p>
+        <p>Trybe</p>
+      </div>
+    </div>
+    <script>
+        /*
+        Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
+        - document.getElementById()
+        - document.getElementsByClassName()
+        - document.getElementsByTagName()*/
+
+// Crie uma função que mude o texto na tag <p> para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício)
+      function changeContentByClass(classNameCtnt, nodeCParent, nodeChild, text){
+        classSel = document.getElementsByClassName(classNameCtnt);
+        classSel[nodeCParent].children[nodeChild].innerText = text;
+        return;
+      }
+
+      setText = 'Daqui a 2 anos gostaria de ter feito 1 ano já de segurança cibernética e estar bem empregado.'
+      changeContentByClass('center-content', 0, 0, setText);   
+
+ //Crie uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).
+      function changeBackground(color){
+        divMainBkgd = document.getElementsByClassName('main-content');
+        divMainBkgd[0].style.backgroundColor = color;
+      }
+      setColorBody = 'rgb(76,164,109)'
+      changeBackground(setColorBody);
+ // Crie uma função que mude a cor do quadrado vermelho para branco.
+      function changeBackgroundByClass(classNameBkgrd, nodeCParent, color){
+        divBkgrd = document.getElementsByClassName(classNameBkgrd);
+        divBkgrd[nodeCParent].style.backgroundColor = color;
+      }
+      setColorParagraph = 'rgb(255,255,255)';
+      changeBackgroundByClass('center-content', 0, setColorParagraph);
+ //Crie uma função que corrija o texto da tag <h1>.
+      function textCorrectionRegex(regex){
+        correctionTextVar = document.getElementsByClassName('title');
+        result = correctionTextVar[0];
+        if (patternRegex.test(result.innerText)){
+            output = result.innerText.replace(regex, 'JavaScript');
+          }
+          result.innerText = output; 
+      }
+      patternRegex = /(?:Java)(?:Escripito)/
+      textCorrectionRegex(patternRegex);
+ //Crie uma função que modifique todo o texto da tag <p> para maiúsculo.
+      function upperCase (classSel){
+        classSel = document.getElementsByClassName('center-content');
+        classSel = classSel[0].children;
+        for (let item=0; item < classSel.length; item += 1) {
+            text = classSel[item].innerText;
+            text2 = text.toUpperCase();
+            classSel[item].innerText = text2;
+          }
+        }
+          
+      upperCase('center-content');
+ //Crie uma função que exiba o conteúdo de todas as tags <p> no console.
+      function showTags(tagSel){
+        tagSel = document.getElementsByTagName('p');
+        for (let index=0; index<tagSel.length; index += 1){
+            console.log(tagSel[index].innerText);
+          }
+        }
+            
+      showTags();
+    </script>
+  </body>
+</html>
