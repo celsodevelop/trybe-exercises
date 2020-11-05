@@ -39,3 +39,9 @@ Agora, defina um segundo objeto com a mesma estrutura, as mesmas chaves do prime
 ### Soluções Funções no arquivo JS:
 
 `exercise_functions.js`
+
+### Exercício 1
+
+Crie uma função que receba uma string e retorne true se for um palíndromo, ou false, se não for.
+
+
