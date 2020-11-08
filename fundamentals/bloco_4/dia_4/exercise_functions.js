@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-restricted-syntax */
 // Crie uma função que receba uma string e retorne true se for um palíndromo, ou false, se não for.
