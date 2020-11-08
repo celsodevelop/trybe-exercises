@@ -68,7 +68,11 @@ function countChar(names, index = 0) {
 function moreRepetition(values, indexNum = 0, outarray = []) {
   let repetitions = 0;
   const firstOcurrence = values.indexOf(values[indexNum]);
-  for (let number = 0; number < values.length && indexNum <= firstOcurrence; number += 1) {
+  for (
+    let number = 0;
+    number < values.length && indexNum <= firstOcurrence;
+    number += 1
+  ) {
     if (values[indexNum] === values[number]) {
       repetitions += 1;
     }
@@ -81,3 +85,33 @@ function moreRepetition(values, indexNum = 0, outarray = []) {
 }
 
 // console.log(moreRepetition([2, 3, 2, 5, 8, 2, 3, 8, 8, 8, 19])); // Exercício 6
+
+function somatorio(n) {
+  return (n * (n + 1)) / 2;
+}
+// console.log(somatorio(100)); // Exercício 6
+
+/* Crie uma função que receba uma string word e outra string ending.
+Verifique se a string ending é o final da string word. Considere que a string
+ending sempre será menor que a string word. */
+
+function verificaChar(palavra, test, index) {
+  if (palavra[(palavra.length - index) - 1] === test[(test.length - index) - 1]) {
+    return true;
+  }
+  return false;
+}
+
+function verificaFimPalavra(palavra, test) {
+  let output = false;
+  for (let index = 0; index < test.length; index += 1) {
+    output = verificaChar(palavra, test, index);
+  }
+  return output;
+}
+
+/*
+console.log(verificaFimPalavra('joaofernando', 'fernan')); // Exercício 7
+
+console.log(verificaFimPalavra("trybe", "be")); // Exercício 7
+*/
