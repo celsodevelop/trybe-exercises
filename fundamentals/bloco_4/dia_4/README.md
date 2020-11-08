@@ -61,7 +61,7 @@ Crie uma função que receba uma `string` e retorne `true` se for um palíndromo
     Array de teste: [2, 3, 6, 7, 10, 1];.
     Valor esperado no retorno da função: 4.
 
-#### Exercícios 4
+#### Exercício 3
 
 Crie uma função que receba um array de inteiros e retorne o índice do menor valor.
 
@@ -69,7 +69,7 @@ Crie uma função que receba um array de inteiros e retorne o índice do menor v
 
     Valor esperado no retorno da função: 6.
 
-#### Exercício 5
+#### Exercício 4
 
 Crie uma função que receba um array de nomes e retorne o nome com a maior quantidade de caracteres.
 
@@ -77,10 +77,26 @@ Crie uma função que receba um array de nomes e retorne o nome com a maior quan
 
     Valor esperado no retorno da função: Fernanda.
 
-#### Exercício 6
+#### Exercício 5
 
 Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete.
 
     Array de teste: [2, 3, 2, 5, 8, 2, 3];.
     Valor esperado no retorno da função: 2.
 
+#### Exercício 6
+
+Crie uma função que receba um número inteiro N e retorne o somatório de todos os números de 1 até N.
+
+    Valor de teste: N = 5.
+    Valor esperado no retorno da função: 1+2+3+4+5 = 15.
+
+#### Exercício 7
+
+Crie uma função que receba uma string word e outra string ending. Verifique se a string ending é o final da string word. Considere que a string ending sempre será menor que a string word.
+
+    verificaFimPalavra("trybe", "be");
+    Retorno esperado: true
+
+    verificaFimPalavra("joaofernando", "fernan");
+    Retorno esperado: false
