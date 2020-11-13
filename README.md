@@ -43,8 +43,8 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [ ] 5-3: _JavaScript - Eventos_
 - [ ] 5-4: _JavaScript - Web Storage_
 - [ ] 5-5: _[Projeto - Meme Generator]()_
-- [ ] 5-6: _[Projeto - Arte com Pixels](https://github.com/tryber/sd-08-project-pixels-art/pull/121)_
-- [ ] 5-7: _[Projeto - Lista de tarefas](https://github.com/tryber/sd-08-project-todo-list/pull/88)_
+- [X] 5-6: _[Projeto - Arte com Pixels](https://github.com/tryber/sd-08-project-pixels-art/pull/121)_
+- [X] 5-7: _[Projeto - Lista de tarefas](https://github.com/tryber/sd-08-project-todo-list/pull/88)_
 - [ ] 5-7: _[Projeto - Adivinhe a Cor]()_
 - [ ] 5-7: _[Projeto - Carta Misteriosa]()_
 
