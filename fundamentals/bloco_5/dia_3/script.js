@@ -14,15 +14,9 @@ function createDaysOfTheWeek() {
 createDaysOfTheWeek();
 
 // Escreva seu código abaixo.
-let monthDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
-
-function createDays() {
-  monthDaysList.forEach((day) => {
-    const itemDay = createElementDay(day);
-    document.getElementById('days').appendChild(itemDay);
-  });
-}
-
+const
+  monthDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+    16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 function isHoliday(day) {
   let output = false;
   const holidays = [24, 25, 31];
@@ -33,7 +27,6 @@ function isHoliday(day) {
   });
   return output;
 }
-
 function whereIsFridays(thisFriday = monthDaysList[5], output = []) {
   monthDaysList.forEach((day, index) => {
     if (day === thisFriday) {
@@ -46,7 +39,6 @@ function whereIsFridays(thisFriday = monthDaysList[5], output = []) {
   });
   return output;
 }
-
 function isFriday(day) {
   let fridayCheck = false;
   const fridays = whereIsFridays();
@@ -68,6 +60,12 @@ function createElementDay(numberDay) {
   }
   day.innerText = numberDay;
   return day;
+}
+function createDays() {
+  monthDaysList.forEach((day) => {
+    const itemDay = createElementDay(day);
+    document.getElementById('days').appendChild(itemDay);
+  });
 }
 
 function capturedEvent(elementID, eventType, callback, onlyChildren = false) {
