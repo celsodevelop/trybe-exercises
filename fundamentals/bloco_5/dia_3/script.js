@@ -68,9 +68,18 @@ function createDays() {
   });
 }
 
+function createButton(textoBotao, id = '') {
+  const listaBotoes = document.querySelector('.buttons-container');
+  const btn = document.createElement('button');
+  btn.setAttribute('type', 'button');
+  btn.id = id;
+  btn.innerText = textoBotao;
+  listaBotoes.appendChild(btn);
+}
+
 function capturedEvent(elementID, eventType, callback, onlyChildren = false) {
   const currentListen = document.getElementById(elementID);
-  currentListen.addEventListener((firedEvent) => {
+  currentListen.addEventListener(eventType, (firedEvent) => {
     if (onlyChildren) {
       if (currentListen !== firedEvent.target) {
         callback(firedEvent.target);
@@ -80,5 +89,6 @@ function capturedEvent(elementID, eventType, callback, onlyChildren = false) {
     }
   });
 }
-
 createDays();
+createButton('Feriados', 'btn-holiday');
+capturedEvent('btn-holiday', 'click', () => console.log('Hello world!'));
