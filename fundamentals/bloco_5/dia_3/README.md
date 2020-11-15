@@ -30,7 +30,7 @@ Implemente uma função que receba como parâmetro a string "Feriados" e crie di
 <br/>
 
 >### Exercício 3:
-Impl<br/>emente uma função que adicione ao botão "Feriados" um evento de "click" que muda a cor de fundo dos dias que possuem a classe "holiday".
+Implemente uma função que adicione ao botão "Feriados" um evento de "click" que muda a cor de fundo dos dias que possuem a classe "holiday".
 
     É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial com a cor `"rgb(238,238,238)"`.
 <br/>
