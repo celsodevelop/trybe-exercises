@@ -14,12 +14,14 @@ function createDaysOfTheWeek() {
 createDaysOfTheWeek();
 
 // Escreva seu código abaixo.
+const offsetDayOne = 1;
 const
   monthDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+const holidays = [24, 25, 31];
+
 function isHoliday(day) {
   let output = false;
-  const holidays = [24, 25, 31];
   holidays.forEach((holiday) => {
     if (holiday === day) {
       output = true;
@@ -61,13 +63,13 @@ function createElementDay(numberDay) {
   day.innerText = numberDay;
   return day;
 }
-function createDays() {
-  monthDaysList.forEach((day) => {
+function createDays(days = monthDaysList) {
+  const listDays = document.getElementById('days');
+  days.forEach((day) => {
     const itemDay = createElementDay(day);
-    document.getElementById('days').appendChild(itemDay);
+    listDays.appendChild(itemDay);
   });
 }
-
 function createButton(textoBotao, id = '') {
   const listaBotoes = document.querySelector('.buttons-container');
   const btn = document.createElement('button');
@@ -76,7 +78,6 @@ function createButton(textoBotao, id = '') {
   btn.innerText = textoBotao;
   listaBotoes.appendChild(btn);
 }
-
 function capturedEvent(elementID, eventType, callback, onlyChildren = false) {
   const currentListen = document.getElementById(elementID);
   currentListen.addEventListener(eventType, (firedEvent) => {
@@ -89,6 +90,20 @@ function capturedEvent(elementID, eventType, callback, onlyChildren = false) {
     }
   });
 }
+function toggleHoliday() {
+  const listDays = document.getElementById('days');
+  const holidaysItem = document.querySelectorAll('.holiday');
+  if (holidaysItem.length !== 0) {
+    holidaysItem.forEach((holiday) => holiday.classList.toggle('holiday'));
+  } else {
+    holidays.forEach((holiday) => {
+      const holidayItem = listDays.children[offsetDayOne + holiday];
+      holidayItem.classList.toggle('holiday');
+    });
+  }
+}
+
 createDays();
 createButton('Feriados', 'btn-holiday');
-capturedEvent('btn-holiday', 'click', () => console.log('Hello world!'));
+createButton('Sexta-feira', 'btn-friday');
+capturedEvent('btn-holiday', 'click', toggleHoliday);
