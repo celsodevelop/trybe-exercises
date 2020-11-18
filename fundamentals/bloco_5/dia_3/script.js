@@ -138,10 +138,19 @@ function preencheItem(itemText) {
   li.className = 'task';
   return li;
 }
+function criarLegenda(cor, elementParent) {
+  const selectedCaption = document.createElement('div');
+  // const listaTarefa = document.querySelector('.task-list');
+  selectedCaption.classList.add('task-caption');
+  selectedCaption.style.backgroundColor = cor;
+  elementParent.appendChild(selectedCaption);
+}
+
 function criarItemLista(tarefa) {
   const listaTarefa = document.querySelector('.task-list');
   const li = preencheItem(tarefa);
   listaTarefa.appendChild(li);
+  criarLegenda('green', li);
 }
 function criarTarefa() {
   const campoTarefa = document.getElementById('task-input');
