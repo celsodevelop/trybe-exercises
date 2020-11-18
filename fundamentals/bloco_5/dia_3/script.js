@@ -93,7 +93,7 @@ function capturedEvent(elementID, eventType, callback, onlyChildren = false) {
     }
   });
 }
-function toggleClass({ specialDayTag, daysListTag }) {
+function toggleClassDays({ specialDayTag, daysListTag }) {
   const specialDaysItems = document.querySelectorAll(`.${specialDayTag}`);
   if (specialDaysItems.length !== 0) {
     specialDaysItems.forEach((specialItem) => specialItem.classList.toggle(specialDayTag));
@@ -103,6 +103,17 @@ function toggleClass({ specialDayTag, daysListTag }) {
       const specialDayItem = listDays.children[offsetDayOne + specialItem];
       specialDayItem.classList.toggle(specialDayTag);
     });
+  }
+}
+function toggleClassTask(eventItem) {
+  const { specialDayTag } = this;
+  const specialDaysItems = document.querySelectorAll(`.${specialDayTag}`);
+  console.log(eventItem);
+  if (specialDaysItems.length !== 0) {
+    specialDaysItems.forEach((specialItem) => specialItem.classList.toggle(specialDayTag));
+  } else {
+    eventItem.classList.toggle(specialDayTag);
+    console.log('entrou else');
   }
 }
 function toggleFriday({ specialDayTag, daysListTag }) {
@@ -123,9 +134,9 @@ function daySelector() {
   const selectDay = this.specialDay;
   if (selectDay === 'friday') {
     toggleFriday({ specialDayTag: 'friday', daysListTag: fridays });
-    toggleClass({ specialDayTag: 'friday', daysListTag: fridays });
+    toggleClassDays({ specialDayTag: 'friday', daysListTag: fridays });
   } else {
-    toggleClass({ specialDayTag: 'holiday', daysListTag: holidays });
+    toggleClassDays({ specialDayTag: 'holiday', daysListTag: holidays });
   }
 }
 function zoomDay(dayItem) {
@@ -140,12 +151,10 @@ function preencheItem(itemText) {
 }
 function criarLegenda(cor, elementParent) {
   const selectedCaption = document.createElement('div');
-  // const listaTarefa = document.querySelector('.task-list');
   selectedCaption.classList.add('task-caption');
   selectedCaption.style.backgroundColor = cor;
   elementParent.appendChild(selectedCaption);
 }
-
 function criarItemLista(tarefa) {
   const listaTarefa = document.querySelector('.task-list');
   const li = preencheItem(tarefa);
@@ -166,3 +175,4 @@ capturedEvent('btn-friday', 'click', daySelector.bind({ specialDay: 'friday' }))
 capturedEvent('days', 'mouseover', zoomDay, true);
 capturedEvent('days', 'mouseout', zoomDay, true);
 capturedEvent('btn-add', 'click', criarTarefa);
+capturedEvent('task-list', 'click', toggleClassTask.bind({ specialDayTag: 'selected' }), true);
