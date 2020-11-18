@@ -127,9 +127,15 @@ function daySelector() {
     toggleClass({ specialDayTag: 'holiday', daysListTag: holidays });
   }
 }
+function zoomDay(dayItem) {
+  const day = dayItem;
+  day.classList.toggle('zoomed');
+}
 
 createDays();
 createButton('Feriados', 'btn-holiday');
 createButton('Sexta-feira', 'btn-friday');
 capturedEvent('btn-holiday', 'click', daySelector.bind({ specialDay: 'holiday' }));
 capturedEvent('btn-friday', 'click', daySelector.bind({ specialDay: 'friday' }));
+capturedEvent('days', 'mouseover', zoomDay, true);
+capturedEvent('days', 'mouseout', zoomDay, true);

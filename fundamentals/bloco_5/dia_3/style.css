@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -30,10 +31,11 @@ button {
   color: rgb(119 , 119 , 119);
   display: inline-block;
   font-size: 20px;
-  margin: 5px 0;
+  padding: 10px;
   text-align: center;
   vertical-align: middle;
   width: 13.6%;
+  height: 50px;
 }
 
 .input-container {
@@ -155,4 +157,8 @@ label {
 
 .holiday {
   background-color: red;
+}
+
+#days .zoomed {
+  font-size: 30px;
 }
