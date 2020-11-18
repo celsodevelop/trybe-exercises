@@ -5,14 +5,14 @@
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #eee;
+  background-color: rgb(238 , 238 , 238);
 }
 
 button {
   margin: 20px;
 }
 
-#btn-add {
+.btn-add {
   margin: 0;
 }
 
@@ -23,11 +23,11 @@ button {
   width: 100%;
 }
 
-#days {
+.days {
   margin: 0;
 }
 
-#days li {
+.day {
   color: rgb(119 , 119 , 119);
   display: inline-block;
   font-size: 20px;
@@ -62,7 +62,7 @@ label {
   text-align: center;
 }
 
-.month-container ul li {
+.month-header .month-item {
   color: white;
   font-size: 20px;
   letter-spacing: 3px;
@@ -87,11 +87,6 @@ label {
   margin-left: 10px;
   vertical-align: middle;
   width: 35px;
-}
-
-.my-tasks div:hover {
-  height: 45px;
-  width: 45px;
 }
 
 .my-tasks span {
@@ -137,11 +132,17 @@ label {
   vertical-align: middle;
 }
 
+.week-days {
+  font-size: 20px;
+  margin: 0;
+  padding: 10px 0;
+}
+
 .week-days-container {
   margin-left: 35px;
 }
 
-.week-days li {
+.week-days .week-day {
   color: rgb(102 , 102 , 102);
   display: inline-block;
   text-align: center;
@@ -149,16 +150,10 @@ label {
   width: 13.6%;
 }
 
-.week-days {
-  font-size: 20px;
-  margin: 0;
-  padding: 10px 0;
-}
-
 .holiday {
   background-color: red;
 }
 
-#days .zoomed {
+ul .zoomed {
   font-size: 30px;
 }

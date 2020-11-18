@@ -5,6 +5,7 @@ function createDaysOfTheWeek() {
   for (let index = 0; index < weekDays.length; index += 1) {
     const days = weekDays[index];
     const dayListItem = document.createElement('li');
+    dayListItem.classList.add('week-day');
     dayListItem.innerHTML = days;
 
     weekDaysList.appendChild(dayListItem);
@@ -131,6 +132,22 @@ function zoomDay(dayItem) {
   const day = dayItem;
   day.classList.toggle('zoomed');
 }
+function preencheItem(itemText) {
+  const li = document.createElement('li');
+  li.innerText = itemText;
+  li.className = 'task';
+  return li;
+}
+function criarItemLista(tarefa) {
+  const listaTarefa = document.querySelector('.task-list');
+  const li = preencheItem(tarefa);
+  listaTarefa.appendChild(li);
+}
+function criarTarefa() {
+  const campoTarefa = document.getElementById('task-input');
+  criarItemLista(campoTarefa.value);
+  campoTarefa.value = '';
+}
 
 createDays();
 createButton('Feriados', 'btn-holiday');
@@ -139,3 +156,4 @@ capturedEvent('btn-holiday', 'click', daySelector.bind({ specialDay: 'holiday' }
 capturedEvent('btn-friday', 'click', daySelector.bind({ specialDay: 'friday' }));
 capturedEvent('days', 'mouseover', zoomDay, true);
 capturedEvent('days', 'mouseout', zoomDay, true);
+capturedEvent('btn-add', 'click', criarTarefa);
