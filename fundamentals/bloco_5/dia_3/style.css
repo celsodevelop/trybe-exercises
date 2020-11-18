@@ -172,3 +172,7 @@ ul .zoomed {
   display: flex;
   align-items: baseline;
 }
+
+.selected {
+  color: green;
+}

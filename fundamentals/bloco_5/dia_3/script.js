@@ -108,12 +108,10 @@ function toggleClassDays({ specialDayTag, daysListTag }) {
 function toggleClassTask(eventItem) {
   const { specialDayTag } = this;
   const specialDaysItems = document.querySelectorAll(`.${specialDayTag}`);
-  console.log(eventItem);
   if (specialDaysItems.length !== 0) {
     specialDaysItems.forEach((specialItem) => specialItem.classList.toggle(specialDayTag));
   } else {
     eventItem.classList.toggle(specialDayTag);
-    console.log('entrou else');
   }
 }
 function toggleFriday({ specialDayTag, daysListTag }) {
@@ -166,6 +164,13 @@ function criarTarefa() {
   criarItemLista(campoTarefa.value);
   campoTarefa.value = '';
 }
+function paintDay(eventItem) {
+  const evento = eventItem;
+  const selectedTask = document.querySelector('.selected .task-caption');
+  if (selectedTask) {
+    evento.style.color = selectedTask.style.backgroundColor;
+  }
+}
 
 createDays();
 createButton('Feriados', 'btn-holiday');
@@ -176,3 +181,4 @@ capturedEvent('days', 'mouseover', zoomDay, true);
 capturedEvent('days', 'mouseout', zoomDay, true);
 capturedEvent('btn-add', 'click', criarTarefa);
 capturedEvent('task-list', 'click', toggleClassTask.bind({ specialDayTag: 'selected' }), true);
+capturedEvent('days', 'click', paintDay, true);
