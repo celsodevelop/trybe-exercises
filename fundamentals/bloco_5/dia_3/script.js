@@ -20,15 +20,6 @@ const
     16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 const holidays = [24, 25, 31];
 
-function isHoliday(day) {
-  let output = false;
-  holidays.forEach((holiday) => {
-    if (holiday === day) {
-      output = true;
-    }
-  });
-  return output;
-}
 function whereIsFridays(thisFriday = monthDaysList[5], output = []) {
   monthDaysList.forEach((day, index) => {
     if (day === thisFriday) {
@@ -41,9 +32,20 @@ function whereIsFridays(thisFriday = monthDaysList[5], output = []) {
   });
   return output;
 }
+
+const fridays = whereIsFridays();
+
+function isHoliday(day) {
+  let output = false;
+  holidays.forEach((holiday) => {
+    if (holiday === day) {
+      output = true;
+    }
+  });
+  return output;
+}
 function isFriday(day) {
   let fridayCheck = false;
-  const fridays = whereIsFridays();
   fridays.forEach((friday) => {
     if (friday === day) {
       fridayCheck = true;
@@ -90,20 +92,44 @@ function capturedEvent(elementID, eventType, callback, onlyChildren = false) {
     }
   });
 }
-function toggleHoliday() {
-  const listDays = document.getElementById('days');
-  const holidaysItem = document.querySelectorAll('.holiday');
-  if (holidaysItem.length !== 0) {
-    holidaysItem.forEach((holiday) => holiday.classList.toggle('holiday'));
+function toggleClass({ specialDayTag, daysListTag }) {
+  const specialDaysItems = document.querySelectorAll(`.${specialDayTag}`);
+  if (specialDaysItems.length !== 0) {
+    specialDaysItems.forEach((specialItem) => specialItem.classList.toggle(specialDayTag));
   } else {
-    holidays.forEach((holiday) => {
-      const holidayItem = listDays.children[offsetDayOne + holiday];
-      holidayItem.classList.toggle('holiday');
+    daysListTag.forEach((specialItem) => {
+      const listDays = document.getElementById('days');
+      const specialDayItem = listDays.children[offsetDayOne + specialItem];
+      specialDayItem.classList.toggle(specialDayTag);
     });
+  }
+}
+function toggleFriday({ specialDayTag, daysListTag }) {
+  const listDays = document.getElementById('days');
+  const specialDaysItems = document.querySelectorAll(`.${specialDayTag}`);
+  if (specialDaysItems.length !== 0) {
+    specialDaysItems.forEach((friday, key) => {
+      specialDaysItems[key].innerText = 'Sextou!';
+    });
+  } else {
+    daysListTag.forEach((friday) => {
+      const specialDayItem = listDays.children[offsetDayOne + friday];
+      specialDayItem.innerText = `${friday}`;
+    });
+  }
+}
+function daySelector() {
+  const selectDay = this.specialDay;
+  if (selectDay === 'friday') {
+    toggleFriday({ specialDayTag: 'friday', daysListTag: fridays });
+    toggleClass({ specialDayTag: 'friday', daysListTag: fridays });
+  } else {
+    toggleClass({ specialDayTag: 'holiday', daysListTag: holidays });
   }
 }
 
 createDays();
 createButton('Feriados', 'btn-holiday');
 createButton('Sexta-feira', 'btn-friday');
-capturedEvent('btn-holiday', 'click', toggleHoliday);
+capturedEvent('btn-holiday', 'click', daySelector.bind({ specialDay: 'holiday' }));
+capturedEvent('btn-friday', 'click', daySelector.bind({ specialDay: 'friday' }));
