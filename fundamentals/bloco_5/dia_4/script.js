@@ -1,9 +1,18 @@
 const changeBg = (bgSelected, selectElement) => {
-  const selectedItem = selectElement.querySelector(`option[selected="selected"]`);
+  const selectedItem = selectElement.querySelector('option[selected="selected"]');
   if (selectedItem !== null) {
     selectedItem.setAttribute('selected', '');
     bgSelected.target.setAttribute('selected', 'selected');
     document.body.style.backgroundColor = bgSelected.target.value;
+  }
+};
+
+const changeTxtColor = (txtSelected, selectElement) => {
+  const selectedItem = selectElement.querySelector('option[selected="selected"]');
+  if (selectedItem !== null) {
+    selectedItem.setAttribute('selected', '');
+    txtSelected.target.setAttribute('selected', 'selected');
+    document.body.style.color = txtSelected.target.value;
   }
 };
 
@@ -33,4 +42,17 @@ const fillBgColor = () => {
   });
 };
 
-window.onload = fillBgColor();
+const fillTxtColor = () => {
+  const txtColors = [
+    { name: 'Vermelho', value: 'red' },
+    { name: 'Azul', value: 'blue' },
+    { name: 'Branco', value: 'white' },
+    { name: 'Verde', value: 'green' },
+    { name: 'Preto', value: 'black' }];
+  txtColors.forEach((txtColor) => {
+    fillOption('text-color', txtColor, changeTxtColor);
+  });
+};
+
+fillBgColor();
+fillTxtColor();
