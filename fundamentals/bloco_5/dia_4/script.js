@@ -34,6 +34,15 @@ const changeLineHeight = (lineHeightSelected, selectElement) => {
   }
 };
 
+const changeFontFamily = (fontFamilySelected, selectElement) => {
+  const selectedItem = selectElement.querySelector('option[selected="selected"]');
+  if (selectedItem !== null) {
+    selectedItem.setAttribute('selected', '');
+    fontFamilySelected.target.setAttribute('selected', 'selected');
+    document.body.style.fontFamily = fontFamilySelected.target.value;
+  }
+};
+
 const fillOption = (itemName, { value, name }, callback) => {
   const selectElement = document.querySelector(`select[name=${itemName}]`);
   const newOption = document.createElement('option');
@@ -96,7 +105,20 @@ const fillLineHeight = () => {
   });
 };
 
+const fillFontFamily = () => {
+  const fontFamilies = [
+    { name: 'Georgia', value: 'Georgia' },
+    { name: 'Times New Roman', value: 'Times New Roman' },
+    { name: 'Lucida Console', value: 'Lucida Console' },
+    { name: 'Courier New', value: 'Courier New' },
+    { name: 'Arial', value: 'Arial' }];
+  fontFamilies.forEach((fontFamily) => {
+    fillOption('font-style', fontFamily, changeFontFamily);
+  });
+};
+
 fillBgColor();
 fillTxtColor();
 fillFontSize();
 fillLineHeight();
+fillFontFamily();
