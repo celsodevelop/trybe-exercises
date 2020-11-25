@@ -16,6 +16,15 @@ const changeTxtColor = (txtSelected, selectElement) => {
   }
 };
 
+const changeFontSize = (fontSelected, selectElement) => {
+  const selectedItem = selectElement.querySelector('option[selected="selected"]');
+  if (selectedItem !== null) {
+    selectedItem.setAttribute('selected', '');
+    fontSelected.target.setAttribute('selected', 'selected');
+    document.body.style.fontSize = fontSelected.target.value;
+  }
+};
+
 const fillOption = (itemName, { value, name }, callback) => {
   const selectElement = document.querySelector(`select[name=${itemName}]`);
   const newOption = document.createElement('option');
@@ -54,5 +63,18 @@ const fillTxtColor = () => {
   });
 };
 
+const fillFontSize = () => {
+  const fontSizes = [
+    { name: 'Small', value: '14px' },
+    { name: 'Medium', value: '18px' },
+    { name: 'Large', value: '24px' },
+    { name: 'Extra-Large', value: '36px' },
+    { name: 'Giant', value: '60px' }];
+  fontSizes.forEach((fontSize) => {
+    fillOption('font-size', fontSize, changeFontSize);
+  });
+};
+
 fillBgColor();
 fillTxtColor();
+fillFontSize();

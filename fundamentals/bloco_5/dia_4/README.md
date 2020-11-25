@@ -14,8 +14,8 @@ Desenvolver um leitor de conteúdo em que aplique preferências das pessoas leit
 As pessoas devem ter o poder de alterar:
 
 - [x] Cor de fundo da tela;
-- [ ] Cor do texto;
-- [ ] Tamanho da fonte;
+- [x] Cor do texto;
+- [x] Tamanho da fonte;
 - [ ] Espaçamento entre as linhas do texto;
 - [ ] Tipo da fonte (Font family).
 
