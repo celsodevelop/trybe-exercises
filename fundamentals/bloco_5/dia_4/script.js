@@ -25,6 +25,15 @@ const changeFontSize = (fontSelected, selectElement) => {
   }
 };
 
+const changeLineHeight = (lineHeightSelected, selectElement) => {
+  const selectedItem = selectElement.querySelector('option[selected="selected"]');
+  if (selectedItem !== null) {
+    selectedItem.setAttribute('selected', '');
+    lineHeightSelected.target.setAttribute('selected', 'selected');
+    document.body.style.lineHeight = lineHeightSelected.target.value;
+  }
+};
+
 const fillOption = (itemName, { value, name }, callback) => {
   const selectElement = document.querySelector(`select[name=${itemName}]`);
   const newOption = document.createElement('option');
@@ -75,6 +84,19 @@ const fillFontSize = () => {
   });
 };
 
+const fillLineHeight = () => {
+  const lineHeights = [
+    { name: 'Small', value: '1.0' },
+    { name: 'Medium', value: '1.25' },
+    { name: 'Large', value: '1.6' },
+    { name: 'Extra-Large', value: '2' },
+    { name: 'Giant', value: '3' }];
+  lineHeights.forEach((lineHeight) => {
+    fillOption('line-height', lineHeight, changeLineHeight);
+  });
+};
+
 fillBgColor();
 fillTxtColor();
 fillFontSize();
+fillLineHeight();
