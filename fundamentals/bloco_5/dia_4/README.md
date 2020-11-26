@@ -16,10 +16,10 @@ As pessoas devem ter o poder de alterar:
 - [x] Cor de fundo da tela;
 - [x] Cor do texto;
 - [x] Tamanho da fonte;
-- [ ] Espaçamento entre as linhas do texto;
-- [ ] Tipo da fonte (Font family).
+- [x] Espaçamento entre as linhas do texto;
+- [x] Tipo da fonte (Font family).
 
-Essas preferências devem ser salvas de forma que, ao retornar à página, as preferências que foram previamente configuradas possam ser aplicadas na tela.
+Essas preferências devem ser salvas de forma que, ao retornar à página, as preferências que foram previamente configuradas possam ser aplicadas na tela. :checked:
 
 
 Fonte Lipsum: https://pt.lipsum.com/ (conteúdo da página a ser trabalhada retirada desta página em 16/11/2020)
