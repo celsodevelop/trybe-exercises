@@ -68,7 +68,7 @@ const changeTxtColor = (txtSelected, selectElement) => {
     txtSelected.setAttribute('selected', 'selected');
     changeStyleNow('color', txtSelected.value);
   }
-  storeCustomPrefs(selectElement.name, selectElement.innerHTML);
+  storeCustomPrefs(selectElement.name, JSON.stringify(selectElement.innerHTML));
 };
 const changeFontSize = (fontSelected, selectElement) => {
   const selectedItem = selectElement.querySelector('option[selected="selected"]');
@@ -77,7 +77,7 @@ const changeFontSize = (fontSelected, selectElement) => {
     fontSelected.setAttribute('selected', 'selected');
     changeStyleNow('fontSize', fontSelected.value);
   }
-  storeCustomPrefs(selectElement.name, selectElement.innerHTML);
+  storeCustomPrefs(selectElement.name, JSON.stringify(selectElement.innerHTML));
 };
 const changeLineHeight = (lineHeightSelected, selectElement) => {
   const selectedItem = selectElement.querySelector('option[selected="selected"]');
@@ -86,7 +86,7 @@ const changeLineHeight = (lineHeightSelected, selectElement) => {
     lineHeightSelected.setAttribute('selected', 'selected');
     changeStyleNow('lineHeight', lineHeightSelected.value);
   }
-  storeCustomPrefs(selectElement.name, selectElement.innerHTML);
+  storeCustomPrefs(selectElement.name, JSON.stringify(selectElement.innerHTML));
 };
 const changeFontFamily = (fontFamilySelected, selectElement) => {
   const selectedItem = selectElement.querySelector('option[selected="selected"]');
@@ -95,7 +95,7 @@ const changeFontFamily = (fontFamilySelected, selectElement) => {
     fontFamilySelected.setAttribute('selected', 'selected');
     changeStyleNow('fontFamily', fontFamilySelected.value);
   }
-  storeCustomPrefs(selectElement.name, selectElement.innerHTML);
+  storeCustomPrefs(selectElement.name, JSON.stringify(selectElement.innerHTML));
 };
 const fillOption = (itemName, { value, name }, callback) => {
   const selectElement = document.querySelector(`select[name=${itemName}]`);
