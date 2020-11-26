@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.custom-form {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+h1 , h2 , h3 , h4 , h5 , hr {
+  margin: 20px 30px;
+}
+
+p {
+  margin: 10px 150px 40px 60px;
+  text-align: justify;
+}
+
+.hero-title {
+  font-size: 3rem;
+}
+
+.custom-settings {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 10px;
+  width: 100%;
+}
