@@ -70,14 +70,75 @@
           <select name="state" id="states-input" class="states"></select>
         </div>
         <div class="form-house-type">
-          <label for="house-input-label" class="house-type-input-label">Casa</label>
-          <input type="radio" name="house-type" id="house-input-label" value="house">
-          <label for="ap-input-label" class="house-type-input-label">Apartamento</label>
-          <input type="radio" name="house-type" id="ap-input-label" value="ap">
+          <label for="house-input-label" class="house-type-input-label"
+            >Casa</label
+          >
+          <input
+            type="radio"
+            name="house-type"
+            id="house-input-label"
+            value="house"
+          />
+          <label for="ap-input-label" class="house-type-input-label"
+            >Apartamento</label
+          >
+          <input
+            type="radio"
+            name="house-type"
+            id="ap-input-label"
+            value="ap"
+          />
         </div>
       </fieldset>
       <fieldset>
         <legend>Dados do seu último emprego</legend>
+        <div class="form-abstract-cv">
+          <label for="abstract-input" class="abstract-input-label">Resumo do currículo</label>
+          <textarea
+            name="abstract"
+            id="abstract-input"
+            cols="30"
+            rows="10"
+            class="abstract-input"
+            maxlength="1000"
+            required="required"
+          ></textarea>
+        </div>
+        <div class="form-last-job">
+          <label for="last-job-input" class="last-job-input-label">Cargo</label>
+          <input
+            type="text"
+            name="last-job"
+            id="last-job-input"
+            class="last-job-input"
+            maxlength="40"
+            required="required"
+          />
+        </div>
+        <div class="form-abstract-job">
+          <label for="abstract-job-input" class="abstract-job-input-label">Descrição do cargo</label>
+          <textarea
+            name="abstract-job"
+            id="abstract-job-input"
+            cols="30"
+            rows="10"
+            class="abstract-job-input"
+            maxlength="500"
+            required="required"
+          ></textarea>
+        </div>
+        <div class="form-job-date">
+          <label for="job-date-input" class="job-date-input-label">Data de Início</label>
+          <input
+            type="text"
+            name="job-date"
+            id="job-date-input"
+            class="job-date-input"
+            maxlength="10"
+            pattern=""
+            required="required"
+          />
+        </div>
       </fieldset>
     </form>
     <script src="script.js"></script>
