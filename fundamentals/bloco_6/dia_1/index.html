@@ -1,21 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Formulário Currículo - Exercício 6.1</title>
-</head>
-<body>
-  <form action="" method="GET">
-    <fieldset>
-      <legend>Dados pessoais</legend>
-      <div class="form-name">
-        <label for="name-input">Nome</label>
-        <input type="text" name="name" id="name-input" class="name-input">
-      </div>
-    </fieldset>
-  </form>
-<script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Formulário Currículo - Exercício 6.1</title>
+  </head>
+  <body>
+    <form action="" method="GET">
+      <fieldset>
+        <legend>Dados pessoais</legend>
+        <div class="form-name">
+          <label for="name-input">Nome</label>
+          <input
+            type="text"
+            name="name"
+            id="name-input"
+            class="name-input"
+            maxlength="40"
+            required
+          />
+        </div>
+        <div class="form-mail">
+          <label for="email-input">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email-input"
+            maxlength="50"
+            required="required"
+          />
+        </div>
+        <div class="form-cpf">
+          <label for="cpf-input" class="cpf-input-label">CPF</label>
+          <input
+            type="number"
+            name="cpf"
+            id="cpf-input"
+            class="cpf-input"
+            maxlength="11"
+            required="required"
+          />
+        </div>
+        <div class="form-address">
+          <label for="address-input" class="address-input-label"
+            >Endereço</label
+          >
+          <input
+            type="text"
+            name="address"
+            id="address-input"
+            class="address-input"
+            maxlength="200"
+          />
+        </div>
+        <div class="form-city">
+          <label for="city-input" class="city-input-label">Cidade</label>
+          <input
+            type="text"
+            name="city"
+            id="city-input"
+            class="city-input"
+            maxlength="28"
+            required="required"
+          />
+        </div>
+        <div class="form-states">
+          <label for="state-input" class="states-input-label">Estado</label>
+          <select name="state" id="states-input" class="states"></select>
+        </div>
+        <div class="form-house-type">
+          <label for="house-input-label" class="house-type-input-label">Casa</label>
+          <input type="radio" name="house-type" id="house-input-label" value="house">
+          <label for="ap-input-label" class="house-type-input-label">Apartamento</label>
+          <input type="radio" name="house-type" id="ap-input-label" value="ap">
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Dados do seu último emprego</legend>
+      </fieldset>
+    </form>
+    <script src="script.js"></script>
+  </body>
 </html>
