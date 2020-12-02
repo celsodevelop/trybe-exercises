@@ -7,8 +7,8 @@
     <title>Formulário Currículo - Exercício 6.1</title>
   </head>
   <body>
-    <form action="" method="POST" enctype="multipart/form-data" novalidate>
-      <fieldset>
+    <form id="job-form" action="" method="GET" enctype="multipart/form-data">
+      <fieldset id="personal-data" class="personal-data">
         <legend>Dados pessoais</legend>
         <div class="form-name">
           <label for="name-input">Nome</label>
@@ -28,6 +28,7 @@
             name="email"
             id="email-input"
             maxlength="50"
+            pattern="^(([^<>()\[\]\.,;:\s@]+(\.[^<>()\[\]\.,;:\s@]+)*)|(.+))@(([^<>()[\]\.,;:\s@]+\.)+[^<>()[\]\.,;:\s@]{2,})$";
             required="required"
           />
         </div>
@@ -38,8 +39,7 @@
             name="cpf"
             id="cpf-input"
             class="cpf-input"
-            maxlength="11"
-            required="required"
+            required
           />
         </div>
         <div class="form-address">
@@ -52,6 +52,7 @@
             id="address-input"
             class="address-input"
             maxlength="200"
+            required
           />
         </div>
         <div class="form-city">
@@ -62,6 +63,7 @@
             id="city-input"
             class="city-input"
             maxlength="28"
+            minlength="2"
             required="required"
           />
         </div>
@@ -90,7 +92,7 @@
           />
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset id="last-job-data"  class="last-job-data">
         <legend>Dados do seu último emprego</legend>
         <div class="form-abstract-cv">
           <label for="abstract-input" class="abstract-input-label">Resumo do currículo</label>
@@ -136,12 +138,12 @@
             class="job-date-input"
             maxlength="10"
             pattern="([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]((19|20)\d\d)"
-            required="required"
+            required
           />
         </div>
       </fieldset>
     </form>
-    <button type="button" class="button-send" id="button-send">Enviar</button>
+    <button type="submit" class="button-send" id="button-send" form="job-form">Enviar</button>
     <script src="script.js"></script>
   </body>
 </html>
