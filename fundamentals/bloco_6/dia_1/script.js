@@ -32,22 +32,46 @@ const capturaEvento = (idElemento, tipoEvento, callback) => {
     callback(elementoEvento);
   });
 };
-// const validaFormulario = (elementoEvento) => {
-//   let output = true;
-//   output = validaCamposObrigatorios();
-//   output = validaLimiteTexto();
-//   if (output) {
-//     console.log('output = true');
-//   }
-//   elementoEvento.preventDefault();
-// };
 const testesFormularioCurriculo = (input) => ({
   valueMissing: 'é um campo obrigatório e não pode ser vazio!',
   tooLong: `tem um número de ${input.getAttribute('maxlength')} caracteres máximo!`,
   tooShort: `tem um número de ${input.getAttribute('minlength')} caracteres mínimo!`,
   patternMismatch: `deve ter um padrão válido ${input.getAttribute('placeholder')}!`,
 });
-
+const criaAviso = (input, nameTest) => {
+  const nomeInput = document.querySelector(`label[for=${input.id}]`);
+  const toTest = testesFormularioCurriculo(input);
+  const msg = document.createElement('span');
+  msg.className = 'error-msg';
+  msg.id = `${input.id}-error-msg`;
+  if (document.getElementById(msg.id)) { input
+    .parentNode
+    .removeChild(document.getElementById(msg.id));
+  }
+  msg.style.color = 'red';
+  msg.innerText = `${nomeInput.innerText} ${toTest[nameTest]}`;
+  input.insertAdjacentElement('afterend', msg);
+};
+const criaDiv = () => {
+  const formData = document.querySelectorAll('form.job-form input');
+  const divData = document.createElement('div');
+  divData.className = 'div-data';
+  divData.id = 'div-data';
+  divData.innerHTML = '<p class="data-title">Dados cadastrados com sucesso!</p><br>';
+  formData.forEach((input) => {
+    if (input.value) {
+      const nomeInput = document.querySelector(`label[for=${input.id}]`);
+      console.log(input.value);
+      const newData = document.createElement('p');
+      newData.className = `${input.name}-data`;
+      newData.id = `${input.name}-data`;
+      newData.innerText = `${nomeInput.innerText}: ${input.value}`;
+      divData.appendChild(newData);
+    }
+  });
+  console.log(divData);
+  document.body.appendChild(divData);
+};
 const validacoesFormulario = (eventoBotao) => {
   eventoBotao.preventDefault();
   let isValid = true;
@@ -55,54 +79,14 @@ const validacoesFormulario = (eventoBotao) => {
   requiredInputs.forEach((input) => {
     const toTest = testesFormularioCurriculo(input);
     const keysTest = Object.keys(toTest);
-    // console.log(keysTest);
     keysTest.forEach((nameTest) => {
-      // console.log(nameTest);
-      const nomeInput = document.querySelector(`label[for=${input.id}]`);
-      // console.log(input.validity[nameTest]);
       if (input.validity[nameTest]) {
-        // console.log(nameTest);
         isValid = false;
-        console.log(`${nomeInput.innerText} ${toTest[nameTest]}`);
+        criaAviso(input, nameTest);
       }
     });
   });
-  return isValid;
-  // valueMissing
-  // tooLong
-  // tooShort
-  // patternMismatch
+  if (isValid) criaDiv();
 };
-// validacoesFormulario();
-/* const validaCamposObrigatorios = () => {
-  const output = true;
-  const requiredInputs = document.querySelectorAll('[required]');
-  requiredInputs.forEach(input => {
-    if (input.validity.valueMissing) {
-      const nomeInput = document.querySelector(`label[for=${input.id}]`);
-      console.log(`${nomeInput.innerText} é um campo obrigatório e não pode ser vazio!`);
-    }
-  });
-  return output;
-};
-const validaLimiteTexto = () => {
-  let output = true;
-  const requiredInputs = document.querySelectorAll('[required]');
-  requiredInputs.forEach(input => {
-    console.log(input.validity.tooLong);
-    console.log(input.validity.tooShort);
-    const nomeInput = document.querySelector(`label[for=${input.id}]`);
-    if (input.validity.tooLong) {
-      console.log(`${nomeInput.innerText} tem um número de ${input.getAttribute('maxlength')}
-      caracteres máximo`);
-    }
-    if (input.validity.tooShort) {
-      console.log(`${nomeInput.innerText} tem um numéro de ${input.getAttribute('minlength')}
-      caracteres mínimo`);
-    }
-  });
-  return output;
-}; */
-
 populateStates();
 capturaEvento('button-send', 'click', validacoesFormulario);
