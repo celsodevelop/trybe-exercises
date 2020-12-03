@@ -1,10 +1,11 @@
+/* eslint-disable arrow-parens */
 const buscaEstados = async () => {
   let output = [];
   await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
-  .then(response => response.json())
-  .then(states => states.forEach(uf => {
-    output.push(uf.sigla);
-  }));
+    .then(response => response.json())
+    .then(states => states.forEach(uf => {
+      output.push(uf.sigla);
+    }));
   output = output.sort();
   return output;
 };
@@ -17,14 +18,14 @@ const criarOption = (item) => {
   return novaOption;
 };
 const populateStates = () => {
-  const selectElement = document.getElementById('states-input');
+  const selectElement = document.getElementById('state-input');
   buscaEstados()
-  .then(states => {
-    states.forEach((uf) => {
-      const novaOption = criarOption(uf);
-      selectElement.appendChild(novaOption);
+    .then(states => {
+      states.forEach((uf) => {
+        const novaOption = criarOption(uf);
+        selectElement.appendChild(novaOption);
+      });
     });
-  });
 };
 const capturaEvento = (idElemento, tipoEvento, callback) => {
   const elementoDOM = document.getElementById(idElemento);
@@ -48,27 +49,74 @@ const criaAviso = (input, nameTest) => {
   errorMsg.innerText = `${nomeInput.innerText} ${toTest[nameTest]}`;
   input.insertAdjacentElement('afterend', errorMsg);
 };
-const processaElemento = (input) => {
-  const nomeInput = document.querySelector(`label[for=${input.id}]`);
-  const newData = document.createElement('p');
-  if (input.value) {
-    newData.className = `${input.name}-data`;
-    newData.id = `${input.name}-data`;
-    newData.innerText = `${nomeInput.innerText}: ${input.value}`;
+const processaRadio = (input) => {
+  let newInput;
+  const idSelect = `${document.forms[0].elements[input.name].value || false}`;
+  if (idSelect) {
+    const selectedElement = document.querySelector(`input[value="${idSelect}"]`).id;
+    newInput = {
+      label: `#${input.name}`,
+      srvName: input.name,
+      value: document.querySelector(`label[for="${selectedElement}"]`).innerText,
+    };
+  }
+  return newInput;
+};
+const processaInput = (input) => {
+  let newInput = {
+    label: `label[for="${input.id}"]`,
+    srvName: input.name,
+    value: `${document.forms[0].elements[input.name].value || false}`,
+  };
+  if (input.type === 'radio') {
+    newInput = processaRadio(input);
+  }
+  return newInput;
+};
+const criaDiv = (input, value, divData) => {
+  const radioOk = divData.children[`${input.srvName}-data`] || '';
+  if (radioOk.id !== 'house-type-data') {
+    const nomeInput = document.querySelector(input.label);
+    const newData = document.createElement('p');
+    newData.className = `${input.srvName}-data`;
+    newData.id = `${input.srvName}-data`;
+    newData.innerText = `${nomeInput.innerText}: ${value}`;
+    return newData;
+  }
+  return undefined;
+};
+
+const processaElemento = (input, divData) => {
+  let newData;
+  if (input.name && input.id) {
+    const newInput = processaInput(input);
+    const { value } = newInput;
+    if (value) {
+      newData = criaDiv(newInput, value, divData);
+    }
   }
   return newData;
 };
-const processaFormulario = (aposBotao) => {
-  const formData = document.querySelectorAll('form.job-form input');
+const resetarDiv = () => {
+  const oldDiv = document.getElementById('div-data');
+  if (oldDiv) oldDiv.parentNode.removeChild(oldDiv);
+};
+const processaFormulario = () => {
+  const formData = Object.values(document.forms[0].elements);
   const divData = document.createElement('div');
   divData.className = 'div-data';
   divData.id = 'div-data';
   divData.innerHTML = '<p class="data-title">Dados cadastrados com sucesso!</p><br>';
   formData.forEach((input) => {
-    const newData = processaElemento(input);
-    divData.appendChild(newData);
+    if (input.id) {
+      const newData = processaElemento(input, divData);
+      if (newData) {
+        divData.appendChild(newData);
+      }
+    }
   });
-  aposBotao.target.nextElementSibling.insertAdjacentElement('afterend', divData);
+  resetarDiv();
+  document.body.insertAdjacentElement('afterend', divData);
 };
 const clearErrorMsg = (element) => {
   const errorMsg = `${element.id}-error`;
@@ -101,3 +149,4 @@ const validaFormulario = (eventoBotao) => {
 
 populateStates();
 capturaEvento('button-send', 'click', validaFormulario);
+capturaEvento('button-reset', 'click', resetarDiv);
