@@ -30,18 +30,21 @@
             id="email-input"
             maxlength="50"
             pattern="^(([^<>()\[\]\.,;:\s@]+(\.[^<>()\[\]\.,;:\s@]+)*)|(.+))@(([^<>()[\]\.,;:\s@]+\.)+[^<>()[\]\.,;:\s@]{2,})$";
-            placeholder="Email"
+            placeholder="username@example.com"
             required="required"
           />
         </div>
         <div class="form-cpf">
           <label for="cpf-input" class="cpf-input-label">CPF</label>
           <input
-            type="number"
+            type="text"
             name="cpf"
             id="cpf-input"
             class="cpf-input"
-            placeholder="Somente números"
+            minlength="11"
+            maxlength="11"
+            pattern="^[0-9]{11}"
+            placeholder="somente números"
             required
           />
         </div>
@@ -77,25 +80,37 @@
           <select name="uf" id="states-input" class="states"></select>
         </div>
         <div class="form-house-type">
-          <label for="house-input-label" class="house-type-input-label"
-            >Casa</label
-          >
-          <input
+          <fieldset>
+            <legend>Tipo de casa</legend>
+            <label for="req-input-label" class="house-type-input-label" hidden>Tipo de casa</label>
+            <input
             type="radio"
             name="house-type"
-            id="house-input-label"
-            value="house"
+            id="req-input-label"
+            value=""
+            hidden
+            disabled
+            required
           />
-          <label for="ap-input-label" class="house-type-input-label"
-            >Apartamento</label
-          >
-          <input
-            type="radio"
-            name="house-type"
-            id="ap-input-label"
-            value="ap"
-          />
-        </div>
+            <label for="house-input-label" class="house-type-input-label">Casa</label>
+            <input
+              type="radio"
+              name="house-type"
+              id="house-input-label"
+              value="house"
+              required
+            />
+            <label for="ap-input-label" class="house-type-input-label"
+              >Apartamento</label
+            >
+            <input
+              type="radio"
+              name="house-type"
+              id="ap-input-label"
+              value="ap"
+            />
+          </div>
+        </fieldset>
       </fieldset>
       <fieldset id="last-job-data"  class="last-job-data">
         <legend>Dados do seu último emprego</legend>
