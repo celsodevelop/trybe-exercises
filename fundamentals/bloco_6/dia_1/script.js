@@ -41,8 +41,43 @@ const validaFormulario = (elementoEvento) => {
   }
   elementoEvento.preventDefault();
 };
+const testesFormularioCurriculo = (input) => ({
+  valueMissing: () => ' é um campo obrigatório e não pode ser vazio!',
+  tooLong: () => ` tem um número de ${input.getAttribute('maxlength')} caracteres máximo!`,
+  tooShort: () => ` tem um número de ${input.getAttribute('minlength')} caracteres mínimo!`,
+  patternMismatch: () => {
+    let msg = ' deve ter um padrão válido "username@example.com"!';
+    if (input.id === 'job-date-input') msg = ' deve estar no formato dd/mm/aaaa !';
+    return msg;
+  },
+});
+
+const validacoesFormulario = () => {
+  let isValid = true;
+  const requiredInputs = document.querySelectorAll('[required]');
+  requiredInputs.forEach((input) => {
+    const toTest = testesFormularioCurriculo(input);
+    const keysTest = Object.keys(toTest);
+    console.log(keysTest);
+    keysTest.forEach((nameTest) => {
+      if (nameTest) {
+        console.log(nameTest);
+        const nomeInput = document.querySelector(`label[for=${input.id}]`);
+        console.log(input.validity[nameTest]);
+        if (input.validity[nameTest]) {
+          console.log(`${nomeInput.innerText}${toTest[nameTest]()}`);
+        }
+      }
+    });
+  });
+// valueMissing
+// tooLong
+// tooShort
+// patternMismatch
+};
+// validacoesFormulario();
 const validaCamposObrigatorios = () => {
-  let output = true;
+  const output = true;
   const requiredInputs = document.querySelectorAll('[required]');
   requiredInputs.forEach(input => {
     if (input.validity.valueMissing) {
@@ -70,4 +105,4 @@ const validaLimiteTexto = () => {
 };
 
 populateStates();
-capturaEvento('button-send', 'click', validaFormulario);
+capturaEvento('button-send', 'click', validacoesFormulario);
