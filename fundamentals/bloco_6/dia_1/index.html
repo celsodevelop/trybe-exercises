@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Formulário Currículo - Exercício 6.1</title>
+  </head>
+  <body>
+    <form id="job-form" name="job-form" class="job-form" action="" method="GET" enctype="multipart/form-data">
+      <fieldset id="personal-data" class="personal-data">
+        <legend>Dados pessoais</legend>
+        <div class="form-name">
+          <label for="name-input">Nome</label>
+          <input
+            type="text"
+            name="name"
+            id="name-input"
+            class="name-input"
+            maxlength="40"
+            placeholder="Nome"
+            required
+          />
+        </div>
+        <div class="form-mail">
+          <label for="email-input">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email-input"
+            maxlength="50"
+            pattern="^(([^<>()\[\]\.,;:\s@]+(\.[^<>()\[\]\.,;:\s@]+)*)|(.+))@(([^<>()[\]\.,;:\s@]+\.)+[^<>()[\]\.,;:\s@]{2,})$";
+            placeholder="username@example.com"
+            required="required"
+          />
+        </div>
+        <div class="form-cpf">
+          <label for="cpf-input" class="cpf-input-label">CPF</label>
+          <input
+            type="text"
+            name="cpf"
+            id="cpf-input"
+            class="cpf-input"
+            minlength="11"
+            maxlength="11"
+            pattern="^[0-9]{11}"
+            placeholder="somente números"
+            required
+          />
+        </div>
+        <div class="form-address">
+          <label for="address-input" class="address-input-label"
+            >Endereço</label
+          >
+          <input
+            type="text"
+            name="address"
+            id="address-input"
+            class="address-input"
+            maxlength="200"
+            placeholder="Endereço"
+            required
+          />
+        </div>
+        <div class="form-city">
+          <label for="city-input" class="city-input-label">Cidade</label>
+          <input
+            type="text"
+            name="city"
+            id="city-input"
+            class="city-input"
+            maxlength="28"
+            minlength="2"
+            placeholder="Cidade"
+            required
+          />
+        </div>
+        <div class="form-states">
+          <label for="state-input" class="states-input-label">Estado</label>
+          <select name="uf" id="state-input" class="states"></select>
+        </div>
+        <div class="form-house-type">
+          <fieldset>
+            <legend id="house-type">Tipo de casa</legend>
+            <label for="req-input-label" class="house-type-input-label" hidden>Tipo de casa</label>
+            <input
+            type="radio"
+            name="house-type"
+            id="req-input-label"
+            value=""
+            hidden
+            disabled
+            required
+          />
+            <label for="house-input-label" class="house-type-input-label">Casa</label>
+            <input
+              type="radio"
+              name="house-type"
+              id="house-input-label"
+              value="house"
+            />
+            <label for="ap-input-label" class="house-type-input-label"
+              >Apartamento</label
+            >
+            <input
+              type="radio"
+              name="house-type"
+              id="ap-input-label"
+              value="ap"
+            />
+          </div>
+        </fieldset>
+      </fieldset>
+      <fieldset id="last-job-data"  class="last-job-data">
+        <legend>Dados do seu último emprego</legend>
+        <div class="form-abstract-cv">
+          <label for="abstract-input" class="abstract-input-label">Resumo do currículo</label>
+          <textarea
+            name="abstract"
+            id="abstract-input"
+            cols="30"
+            rows="10"
+            class="abstract-input"
+            maxlength="1000"
+            placeholder="Conte um pouco como era o seu trabalho e suas conquistas do seu último emprego, enfatize soft-skills ;)"
+            required
+          ></textarea>
+        </div>
+        <div class="form-last-job">
+          <label for="last-job-input" class="last-job-input-label">Cargo</label>
+          <input
+            type="text"
+            name="last-job"
+            id="last-job-input"
+            class="last-job-input"
+            maxlength="40"
+            placeholder="Cargo"
+            required
+          />
+        </div>
+        <div class="form-abstract-job">
+          <label for="abstract-job-input" class="abstract-job-input-label">Descrição do cargo</label>
+          <textarea
+            name="abstract-job"
+            id="abstract-job-input"
+            cols="30"
+            rows="10"
+            class="abstract-job-input"
+            maxlength="500"
+            placeholder="Quais as responsabilidades você tinha no seu último emprego, enfatize hard-skills"
+            required
+          ></textarea>
+        </div>
+        <div class="form-job-date">
+          <label for="job-date-input" class="job-date-input-label">Data de Início</label>
+          <input
+            type="text"
+            name="job-date"
+            id="job-date-input"
+            class="job-date-input"
+            maxlength="10"
+            pattern="([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]((19|20)\d\d)"
+            placeholder="dd/mm/aaaa"
+            required
+          />
+        </div>
+      </fieldset>
+    </form>
+    <button type="submit" class="button-send" id="button-send" form="job-form">Enviar</button>
+    <button type="reset" class="button-reset" id="button-reset" form="job-form">Limpar</button>
+    <script src="script.js"></script>
+  </body>
+</html>
