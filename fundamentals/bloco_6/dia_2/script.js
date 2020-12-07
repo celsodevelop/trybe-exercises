@@ -43,11 +43,12 @@ const criaAviso = (input, nameTest) => {
   const nomeInput = document.querySelector(`label[for=${input.id}]`);
   const toTest = testesFormularioCurriculo(input);
   const errorMsg = document.createElement('p');
-  errorMsg.className = 'error-msg';
+  errorMsg.className = 'alert alert-danger text-nowrap';
+  errorMsg.setAttribute('role', 'alert');
   errorMsg.id = `${input.id}-error`;
   errorMsg.style.color = 'red';
   errorMsg.innerText = `${nomeInput.innerText} ${toTest[nameTest]}`;
-  input.insertAdjacentElement('afterend', errorMsg);
+  input.parentNode.insertAdjacentElement('afterend', errorMsg);
 };
 const processaRadio = (input) => {
   let newInput;

@@ -1,0 +1,65 @@
+body {
+  margin: 100px auto;
+}
+
+.container-inner {
+  width: 80%;
+  /* border: 2px solid red; */
+}
+
+.container-innerinner {
+  width: 60%;
+}
+
+.legend-hero {
+  text-align: center;
+  font-weight: 600;
+  margin: 10% auto;
+  width: 70%;
+}
+
+.personal-data {
+  justify-content: center;
+}
+
+.abstract-input {
+  resize: none;
+}
+
+.abstract-job-input {
+  resize: none;
+}
+
+.house-type-label {
+  font-size: 2em;
+}
+
+.abstract-cv-input {
+  font-size: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+
+}
+
+.last-job-input-label {
+  display: inline;
+}
+
+.house-type-input-label {
+  font-size: 1.75em;
+  margin-left: 30px;
+  line-height: 30px;
+  display: flex;
+  vertical-align: middle;
+}
+
+.align-radio {
+  border: 1px solid gray;
+  line-height: 10px;
+}
+
+.house-type-form {
+  display: flex;
+  align-items: center;
+}

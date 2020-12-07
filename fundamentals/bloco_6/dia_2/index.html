@@ -3,174 +3,216 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="bootstrap.css" integrity="sha384-7quL7Uv7CsDRJi4mj1MOTNAafiy/cO3EoyDaMGv7khLiqr9cTVL/ZOeU2EyAm8h+">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="bootstrap.js" integrity="sha384-UACdLYI/ku0J5/hhojLBvchW9KNT++8VmZQW9cJDVIEth0APvgNO4qSPpIxp8F9T"></script>
     <title>Formulário Currículo - Exercício 6.1</title>
   </head>
   <body>
-    <form id="job-form" name="job-form" class="job-form" action="" method="GET" enctype="multipart/form-data">
-      <fieldset id="personal-data" class="personal-data">
-        <legend>Dados pessoais</legend>
-        <div class="form-name">
-          <label for="name-input">Nome</label>
-          <input
-            type="text"
-            name="name"
-            id="name-input"
-            class="name-input"
-            maxlength="40"
-            placeholder="Nome"
-            required
-          />
+    <div class="container container-outer">
+      <div class="row d-flex mx-auto container-inner">
+        <div class="justify-content-center bd-highlight container-innerinner col-12 rounded shadow">
+          <form id="job-form" name="job-form" class="mx-auto col-9 job-form" action="" method="GET" enctype="multipart/form-data">
+            	<fieldset id="personal-data" class="personal-data">
+                <legend class="legend-hero text-muted">Dados pessoais</legend>
+                <hr>
+                <div class="form-name form-group input-group input-group-lg mt-5">
+                  <label for="name-input" class="input-group-prepend">
+                    <span class="input-group-text" id="name-label">Nome</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="name"
+            	      id="name-input"
+            	      class="name-input form-control"
+                    maxlength="40"
+                    aria-label="Nome"
+                    aria-describedby="name-label"
+                    required
+            	    />
+            	  </div>
+            	  <div class="form-mail form-group input-group input-group-lg">
+                  <label for="email-input" class="input-group-prepend">
+                    <span class="input-group-text">Email</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="email"
+                    id="email-input"
+                    class="email-input form-control"
+            	      maxlength="25"
+            	      pattern="^(([^<>()\[\]\.,;:\s@]+(\.[^<>()\[\]\.,;:\s@]+)*)|(.+))@(([^<>()[\]\.,;:\s@]+\.)+[^<>()[\]\.,;:\s@]{2,})\$";
+            	      placeholder="username@example.com"
+            	      required
+            	    />
+            	  </div>
+                <div class="form-cpf form-group input-group input-group-lg">
+                  <label for="cpf-input" class="input-group-prepend">
+                    <span class="input-group-text">CPF</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="cpf"
+            	      id="cpf-input"
+            	      class="cpf-input form-control"
+            	      minlength="11"
+            	      maxlength="11"
+            	      pattern="^[0-9]{11}"
+            	      placeholder="somente números"
+            	      required
+            	    />
+            	  </div>
+            	  <div class="form-address form-group input-group input-group-lg">
+            	    <label for="address-input" class="input-group-prepend">
+                    <span class="input-group-text">Endereço</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="address"
+            	      id="address-input"
+            	      class="address-input form-control"
+            	      maxlength="200"
+            	      required
+            	    />
+            	  </div>
+            	  <div class="form-group form-city input-group input-group-lg">
+            	    <label for="city-input" class="city-input-label input-group-prepend">
+                    <span class="input-group-text">Cidade</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="city"
+            	      id="city-input"
+            	      class="city-input form-control"
+            	      maxlength="28"
+            	      minlength="2"
+            	      required
+            	    />
+            	  </div>
+            	  <div class="form-group form-states input-group input-group-lg">
+            	    <label for="state-input" class="states-input-label input-group-prepend">
+                    <span class="input-group-text">Estado</span>
+                  </label>
+            	    <select name="uf" id="state-input" class="custom-select states"></select>
+            	  </div>
+                <fieldset>
+            	  <div class="form-group form-house-type">
+            	      <!-- <div class="input-group input-group-lg"> -->
+                      <div class="input-group-append">
+                        <legend id="house-type" class="house-type-label abstract-cv-input input-group-text">Tipo da residência</legend>
+                      </div>
+                    <!-- </div> -->
+            	      <div class="form-check m-4">
+                      	      <input
+                      	      type="radio"
+                              name="house-type"
+                              class="form-check-input"
+                      	      id="req-input-label"
+                      	      value=""
+                      	      hidden
+                      	      disabled
+                      	      required
+                            />
+                            <label for="req-input-label" class="house-type-input-label" hidden>Tipo de casa</label>
+
+                    </div>
+            	      <div class="form-check house-type-form m-4">
+                      	      <input
+                      	        type="radio"
+                      	        name="house-type"
+                                id="house-input-label"
+                                class="form-check-input align-radio align-self-center"
+                      	        value="house"
+                              />
+                      <label for="house-input-label" class="form-check-label house-type-input-label btn btn-outline-secondary">Casa</label>
+                    </div>
+            	      <div class="form-check house-type-form m-4">
+                      	      <input
+                      	        type="radio"
+                      	        name="house-type"
+                                id="ap-input-label"
+                                class="form-check-input align-radio"
+                      	        value="ap"
+                              />
+                      <label for="ap-input-label" class="form-check-label house-type-input-label btn btn-outline-secondary">Apartamento</label>
+
+                    </div>
+                </div>
+              </fieldset>
+              <fieldset id="last-job-data"  class="last-job-data">
+              <legend class="legend-hero text-muted">Dados do seu último emprego</legend>
+              <hr>
+              <div class="form-group form-abstract-cv">
+                <div class="mt-5">
+                <label for="abstract-input" class="last-job-input-label">
+                    <span class="abstract-cv-input input-group-text">Resumo do Currículo</span>
+                </label>
+                </div>
+                <textarea
+                  name="abstract"
+                  id="abstract-input"
+                  cols="20"
+                  rows="9"
+                  class="abstract-input form-control"
+                  maxlength="1000"
+                  placeholder="Conte um pouco como era o seu trabalho e suas conquistas do seu último emprego, enfatize soft-skills ;)"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group form-last-job input-group input-group-lg">
+                <label for="last-job-input" class="last-job-input-label input-group-append">
+                  <span class="input-group-text rounded-left">Cargo</span>
+                </label>
+                <input
+                  type="text"
+                  name="last-job"
+                  id="last-job-input"
+                  class="last-job-input form-control"
+                  maxlength="40"
+                  placeholder="Cargo"
+                  required
+                />
+              </div>
+              <div class="form-group form-abstract-job">
+                <label for="abstract-job-input" class="last-job-input-label">
+                    <span class="input-group-text abstract-cv-input">Descrição do cargo</span>
+                </label>
+                <textarea
+                  name="abstract-job"
+                  id="abstract-job-input"
+                  cols="20"
+                  rows="10"
+                  class="abstract-job-input form-control"
+                  maxlength="500"
+                  placeholder="Quais as responsabilidades você tinha no seu último emprego, enfatize hard-skills"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group form-job-date input-group input-group-lg">
+                <label for="job-date-input" class="job-date-input-label input-group-append">
+                  <span class="input-group-text rounded-left">Data de Início</span>
+                </label>
+                <input
+                  type="text"
+                  name="job-date"
+                  id="job-date-input"
+                  class="job-date-input form-control"
+                  maxlength="10"
+                  pattern="([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]((19|20)\d\d)"
+                  placeholder="dd/mm/aaaa"
+                  required
+                />
+              </fieldset>
+          </form>
         </div>
-        <div class="form-mail">
-          <label for="email-input">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email-input"
-            maxlength="50"
-            pattern="^(([^<>()\[\]\.,;:\s@]+(\.[^<>()\[\]\.,;:\s@]+)*)|(.+))@(([^<>()[\]\.,;:\s@]+\.)+[^<>()[\]\.,;:\s@]{2,})$";
-            placeholder="username@example.com"
-            required="required"
-          />
-        </div>
-        <div class="form-cpf">
-          <label for="cpf-input" class="cpf-input-label">CPF</label>
-          <input
-            type="text"
-            name="cpf"
-            id="cpf-input"
-            class="cpf-input"
-            minlength="11"
-            maxlength="11"
-            pattern="^[0-9]{11}"
-            placeholder="somente números"
-            required
-          />
-        </div>
-        <div class="form-address">
-          <label for="address-input" class="address-input-label"
-            >Endereço</label
-          >
-          <input
-            type="text"
-            name="address"
-            id="address-input"
-            class="address-input"
-            maxlength="200"
-            placeholder="Endereço"
-            required
-          />
-        </div>
-        <div class="form-city">
-          <label for="city-input" class="city-input-label">Cidade</label>
-          <input
-            type="text"
-            name="city"
-            id="city-input"
-            class="city-input"
-            maxlength="28"
-            minlength="2"
-            placeholder="Cidade"
-            required
-          />
-        </div>
-        <div class="form-states">
-          <label for="state-input" class="states-input-label">Estado</label>
-          <select name="uf" id="state-input" class="states"></select>
-        </div>
-        <div class="form-house-type">
-          <fieldset>
-            <legend id="house-type">Tipo de casa</legend>
-            <label for="req-input-label" class="house-type-input-label" hidden>Tipo de casa</label>
-            <input
-            type="radio"
-            name="house-type"
-            id="req-input-label"
-            value=""
-            hidden
-            disabled
-            required
-          />
-            <label for="house-input-label" class="house-type-input-label">Casa</label>
-            <input
-              type="radio"
-              name="house-type"
-              id="house-input-label"
-              value="house"
-            />
-            <label for="ap-input-label" class="house-type-input-label"
-              >Apartamento</label
-            >
-            <input
-              type="radio"
-              name="house-type"
-              id="ap-input-label"
-              value="ap"
-            />
-          </div>
-        </fieldset>
-      </fieldset>
-      <fieldset id="last-job-data"  class="last-job-data">
-        <legend>Dados do seu último emprego</legend>
-        <div class="form-abstract-cv">
-          <label for="abstract-input" class="abstract-input-label">Resumo do currículo</label>
-          <textarea
-            name="abstract"
-            id="abstract-input"
-            cols="30"
-            rows="10"
-            class="abstract-input"
-            maxlength="1000"
-            placeholder="Conte um pouco como era o seu trabalho e suas conquistas do seu último emprego, enfatize soft-skills ;)"
-            required
-          ></textarea>
-        </div>
-        <div class="form-last-job">
-          <label for="last-job-input" class="last-job-input-label">Cargo</label>
-          <input
-            type="text"
-            name="last-job"
-            id="last-job-input"
-            class="last-job-input"
-            maxlength="40"
-            placeholder="Cargo"
-            required
-          />
-        </div>
-        <div class="form-abstract-job">
-          <label for="abstract-job-input" class="abstract-job-input-label">Descrição do cargo</label>
-          <textarea
-            name="abstract-job"
-            id="abstract-job-input"
-            cols="30"
-            rows="10"
-            class="abstract-job-input"
-            maxlength="500"
-            placeholder="Quais as responsabilidades você tinha no seu último emprego, enfatize hard-skills"
-            required
-          ></textarea>
-        </div>
-        <div class="form-job-date">
-          <label for="job-date-input" class="job-date-input-label">Data de Início</label>
-          <input
-            type="text"
-            name="job-date"
-            id="job-date-input"
-            class="job-date-input"
-            maxlength="10"
-            pattern="([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]((19|20)\d\d)"
-            placeholder="dd/mm/aaaa"
-            required
-          />
-        </div>
-      </fieldset>
-    </form>
-    <button type="submit" class="button-send" id="button-send" form="job-form">Enviar</button>
-    <button type="reset" class="button-reset" id="button-reset" form="job-form">Limpar</button>
+      </div>
+      <div class="row mt-3 button-row-group d-flex mx-auto justify-content-between container-inner">
+        <button type="submit" class="col-6 shadow btn btn-lg btn-primary" id="button-send" form="job-form">Enviar</button>
+        <button type="reset" class="col-3 shadow btn btn-lg btn-secondary" id="button-reset" form="job-form">Limpar</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
