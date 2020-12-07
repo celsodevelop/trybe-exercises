@@ -43,7 +43,7 @@ const criaAviso = (input, nameTest) => {
   const nomeInput = document.querySelector(`label[for=${input.id}]`);
   const toTest = testesFormularioCurriculo(input);
   const errorMsg = document.createElement('p');
-  errorMsg.className = 'alert alert-danger text-nowrap';
+  errorMsg.className = 'alert alert-danger small mb-5';
   errorMsg.setAttribute('role', 'alert');
   errorMsg.id = `${input.id}-error`;
   errorMsg.style.color = 'red';
@@ -151,13 +151,14 @@ const validaFormulario = (eventoBotao) => {
 populateStates();
 capturaEvento('button-send', 'click', validaFormulario);
 capturaEvento('button-reset', 'click', resetarDiv);
-
-window.onload = () => {
-  const myDatepicker = document.querySelector('input[name="job-date"]')
-    .DatePickerX.init({
+capturaEvento('job-date-input', 'mouseover', () => {
+  const jobDate = document.querySelector('input[name="job-date"]');
+  const isDate = document.querySelector('.date-picker-x-input');
+  if (!isDate) {
+    jobDate.DatePickerX.init({
       format: 'dd/mm/yyyy',
       clearButton: true,
-      clearButtonLabel: "Limpar",
+      clearButtonLabel: 'Limpar',
       minDate: new Date(1910, 12, 31),
       maxDate: new Date(2020, 12, 31),
       weekDayLabels: ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB', 'DOM'],
@@ -165,5 +166,6 @@ window.onload = () => {
       singleMonthLabels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
       todayButton: true,
       todayButtonLabel: 'Hoje',
-  });
-};
+    });
+  }
+});

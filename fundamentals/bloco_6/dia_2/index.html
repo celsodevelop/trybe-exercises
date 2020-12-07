@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="bootstrap.css" integrity="sha384-7quL7Uv7CsDRJi4mj1MOTNAafiy/cO3EoyDaMGv7khLiqr9cTVL/ZOeU2EyAm8h+">
     <link rel="stylesheet" href="DatePickerX.css" integrity="sha384-hFVSDW6S8WvFOHLfCJ9+nCj22ySH8pV0KFiM461pbs/cALS7kPwW5uQYp8aDoVc+">
+    <link rel="stylesheet" href="just-validate.css" integrity="sha384-jSCl5tvYbqbHbO5gzUXVOf+9yc0KM/z+VIzucbrK77A8/OGf02zm4xhr7pspFESa"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -17,7 +18,7 @@
         <div class="justify-content-center bd-highlight container-innerinner col-12 rounded shadow">
           <form id="job-form" name="job-form" class="mx-auto col-9 job-form" action="" method="GET" enctype="multipart/form-data">
             	<fieldset id="personal-data" class="personal-data">
-                <legend class="legend-hero text-muted">Dados pessoais</legend>
+                <legend class="legend-hero text-muted display-4">Dados pessoais</legend>
                 <hr>
                 <div class="form-name form-group input-group input-group-lg mt-5">
                   <label for="name-input" class="input-group-prepend">
@@ -43,7 +44,7 @@
             	      name="email"
                     id="email-input"
                     class="email-input form-control"
-            	      maxlength="25"
+            	      maxlength="40"
             	      pattern="^(([^<>()\[\]\.,;:\s@]+(\.[^<>()\[\]\.,;:\s@]+)*)|(.+))@(([^<>()[\]\.,;:\s@]+\.)+[^<>()[\]\.,;:\s@]{2,})\$";
             	      placeholder="username@example.com"
             	      required
@@ -100,11 +101,9 @@
             	  </div>
                 <fieldset>
             	  <div class="form-group form-house-type">
-            	      <!-- <div class="input-group input-group-lg"> -->
                       <div class="input-group-append">
                         <legend id="house-type" class="house-type-label abstract-cv-input input-group-text">Tipo da residência</legend>
                       </div>
-                    <!-- </div> -->
             	      <div class="form-check m-4">
                       	      <input
                       	      type="radio"
@@ -125,7 +124,8 @@
                       	        name="house-type"
                                 id="house-input-label"
                                 class="form-check-input align-radio align-self-center"
-                      	        value="house"
+                                value="house"
+                                checked
                               />
                       <label for="house-input-label" class="form-check-label house-type-input-label btn btn-outline-secondary">Casa</label>
                     </div>
@@ -143,7 +143,7 @@
                 </div>
               </fieldset>
               <fieldset id="last-job-data"  class="last-job-data">
-              <legend class="legend-hero text-muted">Dados do seu último emprego</legend>
+              <legend class="legend-hero text-muted display-4">Último emprego</legend>
               <hr>
               <div class="form-group form-abstract-cv">
                 <div class="mt-5">
@@ -216,5 +216,6 @@
     </div>
     <script src="script.js"></script>
     <script src="DatePickerX.js" integrity="sha384-TfyEitgExvl/fUp9/JwMlNv/u/k2VFO+93Xsty5CU7FA9D+N/n1L9Z3MVDswoQjK"></script>
+    <script src="just-validate.js" integrity="sha384-Rcbf+o1BjJl1sB9LJpNCIrsnOlTCgI7ASriaQN3qqazt/ItjA9VUHwVT3PvOJFXB"></script>
   </body>
 </html>
