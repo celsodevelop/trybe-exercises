@@ -128,7 +128,7 @@ const clearErrorMsg = (element) => {
 const validaElemento = (input, toTest) => {
   let isValid = true;
   const keysTest = Object.keys(toTest);
-  clearErrorMsg(input);
+  clearErrorMsg(input.parentNode);
   keysTest.forEach((nameTest) => {
     if (input.validity[nameTest]) {
       criaAviso(input, nameTest);
@@ -151,3 +151,5 @@ const validaFormulario = (eventoBotao) => {
 populateStates();
 capturaEvento('button-send', 'click', validaFormulario);
 capturaEvento('button-reset', 'click', resetarDiv);
+
+document.getElementById('date-job-input').DatePickerX.init()
