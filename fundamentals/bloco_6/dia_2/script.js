@@ -152,4 +152,18 @@ populateStates();
 capturaEvento('button-send', 'click', validaFormulario);
 capturaEvento('button-reset', 'click', resetarDiv);
 
-document.getElementById('date-job-input').DatePickerX.init()
+window.onload = () => {
+  const myDatepicker = document.querySelector('input[name="job-date"]')
+    .DatePickerX.init({
+      format: 'dd/mm/yyyy',
+      clearButton: true,
+      clearButtonLabel: "Limpar",
+      minDate: new Date(1910, 12, 31),
+      maxDate: new Date(2020, 12, 31),
+      weekDayLabels: ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB', 'DOM'],
+      shortMonthLabels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+      singleMonthLabels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+      todayButton: true,
+      todayButtonLabel: 'Hoje',
+  });
+};
