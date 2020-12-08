@@ -13,12 +13,12 @@
     <title>Formulário Currículo - Exercício 6.1</title>
   </head>
   <body>
-    <div class="container container-outer">
-      <div class="row d-flex mx-auto container-inner">
-        <div class="justify-content-center bd-highlight container-innerinner col-12 rounded shadow">
-          <form id="job-form" name="job-form" class="mx-auto col-9 job-form" action="" method="GET" enctype="multipart/form-data">
+    <div class="container">
+      <div class="row d-flex mx-auto justify-content-center ">
+        <div class="bd-highlight col-12 rounded shadow-lg">
+          <form id="job-form" name="job-form" class="mx-auto col-11 job-form" action="" method="GET" enctype="multipart/form-data">
             	<fieldset id="personal-data" class="personal-data">
-                <legend class="legend-hero text-muted display-4">Dados pessoais</legend>
+                <legend class="text-muted display-4 text-nowrap legend-hero">Dados Pessoais</legend>
                 <hr>
                 <div class="form-name form-group input-group input-group-lg mt-5">
                   <label for="name-input" class="input-group-prepend">
@@ -101,8 +101,8 @@
             	  </div>
                 <fieldset>
             	  <div class="form-group form-house-type">
-                      <div class="input-group-append">
-                        <legend id="house-type" class="house-type-label abstract-cv-input input-group-text">Tipo da residência</legend>
+                      <div class="input-group-prepend">
+                        <legend id="house-type" class="house-type-label abstract-cv-input input-group-text text-wrap">Tipo da residência</legend>
                       </div>
             	      <div class="form-check m-4">
                       	      <input
@@ -127,7 +127,7 @@
                                 value="house"
                                 checked
                               />
-                      <label for="house-input-label" class="form-check-label house-type-input-label btn btn-outline-secondary">Casa</label>
+                      <label for="house-input-label" class="form-check-label justify-content-center house-type-input-label btn btn-outline-secondary">Casa</label>
                     </div>
             	      <div class="form-check house-type-form m-4">
                       	      <input
@@ -137,18 +137,18 @@
                                 class="form-check-input align-radio"
                       	        value="ap"
                               />
-                      <label for="ap-input-label" class="form-check-label house-type-input-label btn btn-outline-secondary">Apartamento</label>
+                      <label for="ap-input-label" class="form-check-label house-type-input-label justify-content-center btn btn-outline-secondary">Apartamento</label>
 
                     </div>
                 </div>
               </fieldset>
               <fieldset id="last-job-data"  class="last-job-data">
-              <legend class="legend-hero text-muted display-4">Último emprego</legend>
+              <legend class="text-muted display-4 legend-hero">Último emprego</legend>
               <hr>
               <div class="form-group form-abstract-cv">
                 <div class="mt-5">
                 <label for="abstract-input" class="last-job-input-label">
-                    <span class="abstract-cv-input input-group-text">Resumo do Currículo</span>
+                    <span class="abstract-cv-input input-group-text text-wrap">Resumo do Currículo</span>
                 </label>
                 </div>
                 <textarea
@@ -163,8 +163,8 @@
                 ></textarea>
               </div>
               <div class="form-group form-last-job input-group input-group-lg">
-                <label for="last-job-input" class="last-job-input-label input-group-append">
-                  <span class="input-group-text rounded-left">Cargo</span>
+                <label for="last-job-input" class="last-job-input-label input-group-prepend">
+                  <span class="input-group-text rounded-left col-sm-12">Cargo</span>
                 </label>
                 <input
                   type="text"
@@ -178,7 +178,7 @@
               </div>
               <div class="form-group form-abstract-job">
                 <label for="abstract-job-input" class="last-job-input-label">
-                    <span class="input-group-text abstract-cv-input">Descrição do cargo</span>
+                    <span class="input-group-text abstract-cv-input text-wrap">Descrição do cargo</span>
                 </label>
                 <textarea
                   name="abstract-job"
@@ -191,31 +191,33 @@
                   required
                 ></textarea>
               </div>
-              <div class="form-group form-job-date input-group input-group-lg">
-                <label for="job-date-input" class="job-date-input-label input-group-append">
-                  <span class="input-group-text rounded-left">Data de Início</span>
+              <div class="form-group form-row justify-content-between form-job-date input-group input-group-lg">
+                <label for="job-date-input" class="job-date-input-label col-4 mr-0 input-group-prepend">
+                  <span class="input-group-text rounded-left text-wrap col-sm-12">Data de Início</span>
                 </label>
                 <input
                   type="text"
                   name="job-date"
                   id="job-date-input"
-                  class="job-date-input form-control"
+                  class="job-date-input form-control col-8"
                   maxlength="10"
                   pattern="([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]((19|20)\d\d)"
                   placeholder="dd/mm/aaaa"
                   required
                 />
+              </div>
               </fieldset>
           </form>
         </div>
       </div>
-      <div class="row mt-3 button-row-group d-flex mx-auto justify-content-between container-inner">
-        <button type="submit" class="col-6 shadow btn btn-lg btn-primary" id="button-send" form="job-form">Enviar</button>
-        <button type="reset" class="col-3 shadow btn btn-lg btn-secondary" id="button-reset" form="job-form">Limpar</button>
+      <div class="row mt-3 button-row-group d-flex mx-auto justify-content-around container-inner">
+        <button type="submit" class="col-lg-6 col-md-12 shadow btn btn-lg btn-primary" id="button-send" form="job-form">Enviar</button>
+        <div class="d-none d-inline-block-sm w-100"></div>
+        <button type="reset" class="col-lg-4 col-sm-12 m-lg-0 m-2 mt-3 shadow btn btn-lg btn-secondary" id="button-reset" form="job-form">Limpar</button>
       </div>
     </div>
-    <script src="script.js"></script>
     <script src="DatePickerX.js" integrity="sha384-TfyEitgExvl/fUp9/JwMlNv/u/k2VFO+93Xsty5CU7FA9D+N/n1L9Z3MVDswoQjK"></script>
     <script src="just-validate.js" integrity="sha384-Rcbf+o1BjJl1sB9LJpNCIrsnOlTCgI7ASriaQN3qqazt/ItjA9VUHwVT3PvOJFXB"></script>
+    <script src="script.js"></script>
   </body>
 </html>
