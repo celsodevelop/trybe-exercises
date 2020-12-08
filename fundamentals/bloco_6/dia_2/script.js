@@ -33,6 +33,25 @@ const capturaEvento = (idElemento, tipoEvento, callback) => {
     callback(elementoEvento);
   });
 };
+const resetarDiv = () => {
+  const oldDiv = document.getElementById('div-data');
+  if (oldDiv) oldDiv.parentNode.removeChild(oldDiv);
+};
+
+/* Ao utilizarmos a biblioteca JustValidate não precisaremos fazer a verificação manual mais
+
+const criaDiv = (input, value, divData) => {
+  const radioOk = divData.children[`${input.srvName}-data`] || '';
+  if (radioOk.id !== 'house-type-data') {
+    const nomeInput = document.querySelector(input.label);
+    const newData = document.createElement('p');
+    newData.className = `${input.srvName}-data`;
+    newData.id = `${input.srvName}-data`;
+    newData.innerText = `${nomeInput.innerText}: ${value}`;
+    return newData;
+  }
+  return undefined;
+};
 const testesFormularioCurriculo = (input) => ({
   valueMissing: 'é um campo obrigatório e não pode ser vazio!',
   tooLong: `tem um número de ${input.getAttribute('maxlength')} caracteres máximo!`,
@@ -74,19 +93,6 @@ const processaInput = (input) => {
   }
   return newInput;
 };
-const criaDiv = (input, value, divData) => {
-  const radioOk = divData.children[`${input.srvName}-data`] || '';
-  if (radioOk.id !== 'house-type-data') {
-    const nomeInput = document.querySelector(input.label);
-    const newData = document.createElement('p');
-    newData.className = `${input.srvName}-data`;
-    newData.id = `${input.srvName}-data`;
-    newData.innerText = `${nomeInput.innerText}: ${value}`;
-    return newData;
-  }
-  return undefined;
-};
-
 const processaElemento = (input, divData) => {
   let newData;
   if (input.name && input.id) {
@@ -97,10 +103,6 @@ const processaElemento = (input, divData) => {
     }
   }
   return newData;
-};
-const resetarDiv = () => {
-  const oldDiv = document.getElementById('div-data');
-  if (oldDiv) oldDiv.parentNode.removeChild(oldDiv);
 };
 const processaFormulario = () => {
   const formData = Object.values(document.forms[0].elements);
@@ -148,9 +150,12 @@ const validaFormulario = (eventoBotao) => {
   if (isValid) processaFormulario(eventoBotao);
 };
 
+capturaEvento('button-send', 'click', validaFormulario); //Utilizando a biblioteca just-validate
+*/
 populateStates();
-capturaEvento('button-send', 'click', validaFormulario);
+
 capturaEvento('button-reset', 'click', resetarDiv);
+
 capturaEvento('job-date-input', 'mouseover', () => {
   const jobDate = document.querySelector('input[name="job-date"]');
   const isDate = document.querySelector('.date-picker-x-input');
