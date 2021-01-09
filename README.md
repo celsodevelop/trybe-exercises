@@ -76,14 +76,14 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 - [ ] 9-1: _JavaScript Assíncrono e Callbacks_
 - [ ] 9-2: _JavaScript Promises_
-- [ ] 9-3: _[Projeto - Carrinho de Compras]()_
+- [X] 9-3: _[Projeto - Carrinho de Compras](https://github.com/tryber/sd-08-project-shopping-cart/pull/122)_
 
 ##### Bloco 10: Jest
 
 - [ ] 10-1: _Primeiros passos no Jest_
 - [ ] 10-2: _Jest - Testes Assíncronos_
 - [ ] 10-3: _Jest - Simulando comportamentos_
-- [ ] 10-4: _[Projeto - Jest Assíncrono e Mocking]()_
+- [X] 10-4: _[Projeto - Jest Assíncrono e Mocking](https://github.com/tryber/sd-08-project-jest/pull/85)_
 
 ## Desenvolvimento Front-end :hourglass_flowing_sand:
 
