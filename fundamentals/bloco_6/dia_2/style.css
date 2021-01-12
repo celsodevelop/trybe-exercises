@@ -14,6 +14,11 @@ body {
   width: 100%;
 }
 
+.js-validate-error-label {
+  margin-top: 5px;
+}
+
+
 .personal-data {
   justify-content: center;
 }

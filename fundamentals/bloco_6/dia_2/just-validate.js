@@ -1007,6 +1007,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         renderErrors: function renderErrors() {
             var _this5 = this;
 
+
             this.clearErrors();
             this.unlockForm();
 

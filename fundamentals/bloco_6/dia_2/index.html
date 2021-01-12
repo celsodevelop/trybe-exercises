@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="bootstrap.css" integrity="sha384-7quL7Uv7CsDRJi4mj1MOTNAafiy/cO3EoyDaMGv7khLiqr9cTVL/ZOeU2EyAm8h+">
     <link rel="stylesheet" href="DatePickerX.css" integrity="sha384-hFVSDW6S8WvFOHLfCJ9+nCj22ySH8pV0KFiM461pbs/cALS7kPwW5uQYp8aDoVc+">
-    <link rel="stylesheet" href="just-validate.css" integrity="sha384-jSCl5tvYbqbHbO5gzUXVOf+9yc0KM/z+VIzucbrK77A8/OGf02zm4xhr7pspFESa"></script>
+    <link rel="stylesheet" href="justValidateTooltip.css" integrity="sha384-rp3t3BXu2Eh6q/YoAwRGJ37e3MlEmBytoZq83KAYhxkE9g7ecZBsUvbBz2QF+oFO"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@
     <div class="container">
       <div class="row d-flex mx-auto justify-content-center ">
         <div class="bd-highlight col-12 rounded shadow-lg">
-          <form id="job-form" name="job-form" class="mx-auto col-11 job-form" action="" method="GET" enctype="multipart/form-data">
+          <form id="job-form" name="job-form" class="form js-form mx-auto col-11 job-form" action="#" novalidate>
             	<fieldset id="personal-data" class="personal-data">
                 <legend class="text-muted display-4 text-nowrap legend-hero">Dados Pessoais</legend>
                 <hr>
@@ -31,6 +31,7 @@
             	      class="name-input form-control"
                     maxlength="40"
                     aria-label="Nome"
+                    data-validate-field="name"
                     aria-describedby="name-label"
                     required
             	    />
@@ -44,8 +45,8 @@
             	      name="email"
                     id="email-input"
                     class="email-input form-control"
-            	      maxlength="40"
-            	      pattern="^(([^<>()\[\]\.,;:\s@]+(\.[^<>()\[\]\.,;:\s@]+)*)|(.+))@(([^<>()[\]\.,;:\s@]+\.)+[^<>()[\]\.,;:\s@]{2,})\$";
+                    maxlength="40"
+                    data-validate-field="email"
             	      placeholder="username@example.com"
             	      required
             	    />
@@ -60,8 +61,8 @@
             	      id="cpf-input"
             	      class="cpf-input form-control"
             	      minlength="11"
-            	      maxlength="11"
-            	      pattern="^[0-9]{11}"
+                    maxlength="11"
+                    data-validate-field="cpf"
             	      placeholder="somente números"
             	      required
             	    />
@@ -73,7 +74,8 @@
             	    <input
             	      type="text"
             	      name="address"
-            	      id="address-input"
+                    id="address-input"
+                    data-validate-field="text"
             	      class="address-input form-control"
             	      maxlength="200"
             	      required
@@ -87,7 +89,8 @@
             	      type="text"
             	      name="city"
             	      id="city-input"
-            	      class="city-input form-control"
+                    class="city-input form-control"
+                    data-validate-field="text"
             	      maxlength="28"
             	      minlength="2"
             	      required
@@ -98,7 +101,8 @@
                     <span class="input-group-text">Estado</span>
                   </label>
             	    <select name="uf" id="state-input" class="custom-select states"></select>
-            	  </div>
+                </div>
+              </fieldset>
                 <fieldset>
             	  <div class="form-group form-house-type">
                       <div class="input-group-prepend">
@@ -125,6 +129,7 @@
                                 id="house-input-label"
                                 class="form-check-input align-radio align-self-center"
                                 value="house"
+                                data-validate-field="state"
                                 checked
                               />
                       <label for="house-input-label" class="form-check-label justify-content-center house-type-input-label btn btn-outline-secondary">Casa</label>
@@ -135,6 +140,7 @@
                       	        name="house-type"
                                 id="ap-input-label"
                                 class="form-check-input align-radio"
+                                data-validate-field="state"
                       	        value="ap"
                               />
                       <label for="ap-input-label" class="form-check-label house-type-input-label justify-content-center btn btn-outline-secondary">Apartamento</label>
@@ -158,6 +164,7 @@
                   rows="9"
                   class="abstract-input form-control"
                   maxlength="1000"
+                  data-validate-field="text"
                   placeholder="Conte um pouco como era o seu trabalho e suas conquistas do seu último emprego, enfatize soft-skills ;)"
                   required
                 ></textarea>
@@ -172,6 +179,7 @@
                   id="last-job-input"
                   class="last-job-input form-control"
                   maxlength="40"
+                  data-validate-field="text"
                   placeholder="Cargo"
                   required
                 />
@@ -187,20 +195,22 @@
                   rows="10"
                   class="abstract-job-input form-control"
                   maxlength="500"
+                  data-validate-field="text"
                   placeholder="Quais as responsabilidades você tinha no seu último emprego, enfatize hard-skills"
                   required
                 ></textarea>
               </div>
               <div class="form-group form-row justify-content-between form-job-date input-group input-group-lg">
-                <label for="job-date-input" class="job-date-input-label col-4 mr-0 input-group-prepend">
-                  <span class="input-group-text rounded-left text-wrap col-sm-12">Data de Início</span>
+                <label for="job-date-input" class="job-date-input-label col-12 col-sm-4 mr-0 input-group-prepend">
+                  <span class="input-group-text rounded">Data de Início</span>
                 </label>
                 <input
                   type="text"
                   name="job-date"
                   id="job-date-input"
-                  class="job-date-input form-control col-8"
+                  class="job-date-input form-control col-12 col-sm-8"
                   maxlength="10"
+                  data-validate-field="date"
                   pattern="([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]((19|20)\d\d)"
                   placeholder="dd/mm/aaaa"
                   required
@@ -216,8 +226,8 @@
         <button type="reset" class="col-lg-4 col-sm-12 m-lg-0 m-2 mt-3 shadow btn btn-lg btn-secondary" id="button-reset" form="job-form">Limpar</button>
       </div>
     </div>
+    <script src="just-validate.js"></script>
     <script src="DatePickerX.js" integrity="sha384-TfyEitgExvl/fUp9/JwMlNv/u/k2VFO+93Xsty5CU7FA9D+N/n1L9Z3MVDswoQjK"></script>
-    <script src="just-validate.js" integrity="sha384-Rcbf+o1BjJl1sB9LJpNCIrsnOlTCgI7ASriaQN3qqazt/ItjA9VUHwVT3PvOJFXB"></script>
     <script src="script.js"></script>
   </body>
 </html>

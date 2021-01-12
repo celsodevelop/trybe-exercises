@@ -1,4 +1,76 @@
 /* eslint-disable arrow-parens */
+// eslint-disable-next-line no-new
+new window.JustValidate('.js-form', {
+  rules: {
+    name: {
+      required: true,
+      maxLength: 40,
+      minLength: 3,
+    },
+    date: {
+      required: true,
+      maxLength: 10,
+      minLength: 10,
+      strength: {
+        custom: '([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]((19|20)dd)',
+      },
+    },
+    email: {
+      required: true,
+      email: true,
+      maxLength: 40,
+    },
+    cpf: {
+      required: true,
+      maxLength: 11,
+      minLength: 11,
+      strength: {
+        custom: '^[0-9]{11}',
+      },
+    },
+    select: {
+      required: true,
+    },
+    text: {
+      required: true,
+    },
+  },
+  focusWrongField: true,
+  message: {
+    name: {
+      required: 'Nome é um campo obrigatório!',
+      minLength: 'Seu nome é bem curto?!',
+      maxLength: 'Poderia abreviar o seu nome?',
+    },
+    state: {
+      required: 'Selecione um campo obrigatório',
+    },
+    date: {
+      required: 'Data é um campo obrigatório!',
+      strength: 'O padrão não confere com dd/mm/yyyy',
+    },
+    text: {
+      required: 'Este é um campo obrigatório!',
+    },
+    cpf: {
+      required: 'CPF é um campo obrigatório!',
+      minLength: 'Insira seu CPF com 11 dígitos',
+    },
+    email: {
+      required: 'Email é um campo obrigatório',
+      email: 'O email não está em uma padrão correto',
+    },
+  },
+  // invalidFormCallback: (errors) => {
+  //   console.log(errors);
+  // },
+  // submitHandler: (form, values, ajax) => {
+  //   console.log(form);
+  //   console.log(values);
+  //   console.log(ajax);
+  // },
+});
+
 const buscaEstados = async () => {
   let output = [];
   await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
@@ -152,6 +224,7 @@ const validaFormulario = (eventoBotao) => {
 
 capturaEvento('button-send', 'click', validaFormulario); //Utilizando a biblioteca just-validate
 */
+
 populateStates();
 
 capturaEvento('button-reset', 'click', resetarDiv);
