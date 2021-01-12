@@ -1,4 +1,4 @@
-# DIA 2
+# DIA 1
 
 ## DESCRIÇÃO DOS PROGRAMAS
 
