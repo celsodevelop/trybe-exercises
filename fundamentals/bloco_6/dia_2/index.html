@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.css" integrity="sha384-7quL7Uv7CsDRJi4mj1MOTNAafiy/cO3EoyDaMGv7khLiqr9cTVL/ZOeU2EyAm8h+">
+    <link rel="stylesheet" href="DatePickerX.css" integrity="sha384-hFVSDW6S8WvFOHLfCJ9+nCj22ySH8pV0KFiM461pbs/cALS7kPwW5uQYp8aDoVc+">
+    <link rel="stylesheet" href="justValidateTooltip.css" integrity="sha384-rp3t3BXu2Eh6q/YoAwRGJ37e3MlEmBytoZq83KAYhxkE9g7ecZBsUvbBz2QF+oFO"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="bootstrap.js" integrity="sha384-UACdLYI/ku0J5/hhojLBvchW9KNT++8VmZQW9cJDVIEth0APvgNO4qSPpIxp8F9T"></script>
+    <title>Formulário Currículo - Exercício 6.1</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row d-flex mx-auto justify-content-center ">
+        <div class="bd-highlight col-12 rounded shadow-lg">
+          <form id="job-form" name="job-form" class="form js-form mx-auto col-11 job-form" action="#" novalidate>
+            	<fieldset id="personal-data" class="personal-data">
+                <legend class="text-muted display-4 text-nowrap legend-hero">Dados Pessoais</legend>
+                <hr>
+                <div class="form-name form-group input-group input-group-lg mt-5">
+                  <label for="name-input" class="input-group-prepend">
+                    <span class="input-group-text" id="name-label">Nome</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="name"
+            	      id="name-input"
+            	      class="name-input form-control"
+                    maxlength="40"
+                    aria-label="Nome"
+                    data-validate-field="name"
+                    aria-describedby="name-label"
+                    required
+            	    />
+            	  </div>
+            	  <div class="form-mail form-group input-group input-group-lg">
+                  <label for="email-input" class="input-group-prepend">
+                    <span class="input-group-text">Email</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="email"
+                    id="email-input"
+                    class="email-input form-control"
+                    maxlength="40"
+                    data-validate-field="email"
+            	      placeholder="username@example.com"
+            	      required
+            	    />
+            	  </div>
+                <div class="form-cpf form-group input-group input-group-lg">
+                  <label for="cpf-input" class="input-group-prepend">
+                    <span class="input-group-text">CPF</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="cpf"
+            	      id="cpf-input"
+            	      class="cpf-input form-control"
+            	      minlength="11"
+                    maxlength="11"
+                    data-validate-field="cpf"
+            	      placeholder="somente números"
+            	      required
+            	    />
+            	  </div>
+            	  <div class="form-address form-group input-group input-group-lg">
+            	    <label for="address-input" class="input-group-prepend">
+                    <span class="input-group-text">Endereço</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="address"
+                    id="address-input"
+                    data-validate-field="text"
+            	      class="address-input form-control"
+            	      maxlength="200"
+            	      required
+            	    />
+            	  </div>
+            	  <div class="form-group form-city input-group input-group-lg">
+            	    <label for="city-input" class="city-input-label input-group-prepend">
+                    <span class="input-group-text">Cidade</span>
+                  </label>
+            	    <input
+            	      type="text"
+            	      name="city"
+            	      id="city-input"
+                    class="city-input form-control"
+                    data-validate-field="text"
+            	      maxlength="28"
+            	      minlength="2"
+            	      required
+            	    />
+            	  </div>
+            	  <div class="form-group form-states input-group input-group-lg">
+            	    <label for="state-input" class="states-input-label input-group-prepend">
+                    <span class="input-group-text">Estado</span>
+                  </label>
+            	    <select name="uf" id="state-input" class="custom-select states"></select>
+                </div>
+              </fieldset>
+                <fieldset>
+            	  <div class="form-group form-house-type">
+                      <div class="input-group-prepend">
+                        <legend id="house-type" class="house-type-label abstract-cv-input input-group-text text-wrap">Tipo da residência</legend>
+                      </div>
+            	      <div class="form-check m-4">
+                      	      <input
+                      	      type="radio"
+                              name="house-type"
+                              class="form-check-input"
+                      	      id="req-input-label"
+                      	      value=""
+                      	      hidden
+                      	      disabled
+                      	      required
+                            />
+                            <label for="req-input-label" class="house-type-input-label" hidden>Tipo de casa</label>
+
+                    </div>
+            	      <div class="form-check house-type-form m-4">
+                      	      <input
+                      	        type="radio"
+                      	        name="house-type"
+                                id="house-input-label"
+                                class="form-check-input align-radio align-self-center"
+                                value="house"
+                                data-validate-field="state"
+                                checked
+                              />
+                      <label for="house-input-label" class="form-check-label justify-content-center house-type-input-label btn btn-outline-secondary">Casa</label>
+                    </div>
+            	      <div class="form-check house-type-form m-4">
+                      	      <input
+                      	        type="radio"
+                      	        name="house-type"
+                                id="ap-input-label"
+                                class="form-check-input align-radio"
+                                data-validate-field="state"
+                      	        value="ap"
+                              />
+                      <label for="ap-input-label" class="form-check-label house-type-input-label justify-content-center btn btn-outline-secondary">Apartamento</label>
+
+                    </div>
+                </div>
+              </fieldset>
+              <fieldset id="last-job-data"  class="last-job-data">
+              <legend class="text-muted display-4 legend-hero">Último emprego</legend>
+              <hr>
+              <div class="form-group form-abstract-cv">
+                <div class="mt-5">
+                <label for="abstract-input" class="last-job-input-label">
+                    <span class="abstract-cv-input input-group-text text-wrap">Resumo do Currículo</span>
+                </label>
+                </div>
+                <textarea
+                  name="abstract"
+                  id="abstract-input"
+                  cols="20"
+                  rows="9"
+                  class="abstract-input form-control"
+                  maxlength="1000"
+                  data-validate-field="text"
+                  placeholder="Conte um pouco como era o seu trabalho e suas conquistas do seu último emprego, enfatize soft-skills ;)"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group form-last-job input-group input-group-lg">
+                <label for="last-job-input" class="last-job-input-label input-group-prepend">
+                  <span class="input-group-text rounded-left col-sm-12">Cargo</span>
+                </label>
+                <input
+                  type="text"
+                  name="last-job"
+                  id="last-job-input"
+                  class="last-job-input form-control"
+                  maxlength="40"
+                  data-validate-field="text"
+                  placeholder="Cargo"
+                  required
+                />
+              </div>
+              <div class="form-group form-abstract-job">
+                <label for="abstract-job-input" class="last-job-input-label">
+                    <span class="input-group-text abstract-cv-input text-wrap">Descrição do cargo</span>
+                </label>
+                <textarea
+                  name="abstract-job"
+                  id="abstract-job-input"
+                  cols="20"
+                  rows="10"
+                  class="abstract-job-input form-control"
+                  maxlength="500"
+                  data-validate-field="text"
+                  placeholder="Quais as responsabilidades você tinha no seu último emprego, enfatize hard-skills"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group form-row justify-content-between form-job-date input-group input-group-lg">
+                <label for="job-date-input" class="job-date-input-label col-12 col-sm-4 mr-0 input-group-prepend">
+                  <span class="input-group-text rounded">Data de Início</span>
+                </label>
+                <input
+                  type="text"
+                  name="job-date"
+                  id="job-date-input"
+                  class="job-date-input form-control col-12 col-sm-8"
+                  maxlength="10"
+                  data-validate-field="date"
+                  pattern="([0][1-9]|[1-2][0-9]|[3][0-1])[/]([0][1-9]|[1][0-2])[/]((19|20)\d\d)"
+                  placeholder="dd/mm/aaaa"
+                  required
+                />
+              </div>
+              </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-3 button-row-group d-flex mx-auto justify-content-around container-inner">
+        <button type="submit" class="col-lg-6 col-md-12 shadow btn btn-lg btn-primary" id="button-send" form="job-form">Enviar</button>
+        <div class="d-none d-inline-block-sm w-100"></div>
+        <button type="reset" class="col-lg-4 col-sm-12 m-lg-0 m-2 mt-3 shadow btn btn-lg btn-secondary" id="button-reset" form="job-form">Limpar</button>
+      </div>
+    </div>
+    <script src="just-validate.js"></script>
+    <script src="DatePickerX.js" integrity="sha384-TfyEitgExvl/fUp9/JwMlNv/u/k2VFO+93Xsty5CU7FA9D+N/n1L9Z3MVDswoQjK"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
