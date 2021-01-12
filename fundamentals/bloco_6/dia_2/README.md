@@ -2,7 +2,7 @@
 
 ## DESCRIÇÃO DOS PROGRAMAS
 
-Utilizando o formulário desenvolvido anteriormente no [repositorio do dia 1](https://github.com/celsodevelop/trybe-exercises/tree/main/fundamentals/bloco_6/dia_1)
+Utilizando o formulário desenvolvido anteriormente no [repositorio do dia 1](https://github.com/celsodevelop/trybe-exercises/tree/main/fundamentals/bloco_6/dia_1) a idéia é trazer recursos de bibliotecas externas e utilizar da forma como previsto pelo desenvolvedor esses recursos.
 <br>
 <hr>
 
