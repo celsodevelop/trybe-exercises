@@ -5,3 +5,5 @@ Nesse módulo aprendi a utilizar o framework `React` para criar aplicações de 
 Com isso me tornei capaz de criar páginas com formulários, estilizadas de forma responsiva, utilizando frameworks e bibliotecas externas para a estilização e validação de dados. Sei agora utilizar as principais funcionalidades do `ECMAScript 6`, a mais recente versão do `JavaScript`. E também sou capaz de criar aplicações completas de front-end utilizando o framework `React`.
 
 Tendo isso em mente, esta pasta contém todas as atividades de aprendizagem que desenvolvi ao longo do módulo de `Front-end` do curso.
+
+O desenvolvimento desse módulo ocorrerá preferencialmente em branches específicas que não serão "mergeadas" na `main` para organização do build dos exercícios em React. Ao final de cada dia no `README` há um link para o PR a que se refere.
