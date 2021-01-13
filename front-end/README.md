@@ -6,4 +6,3 @@ Com isso me tornei capaz de criar páginas com formulários, estilizadas de form
 
 Tendo isso em mente, esta pasta contém todas as atividades de aprendizagem que desenvolvi ao longo do módulo de `Front-end` do curso.
 
-O desenvolvimento desse módulo ocorrerá preferencialmente em branches específicas que não serão "mergeadas" na `main` para organização do build dos exercícios em React. Ao final de cada dia no `README` há um link para o PR a que se refere.
